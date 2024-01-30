@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Playercontroller : MonoBehaviour
 {
+   
+  
     public float speed = 5;
     private Rigidbody rb;
     //Vector3 StartScale = Vector3.one;
