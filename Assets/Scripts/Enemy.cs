@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = 5f;        // Hastighet för fienden
+    public float stopTime = 5f;     // Tid att stanna i sekunder
+
+    private Rigidbody2D rb;
+    private float startTime;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        startTime = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        MoveEnemy();
+    }
+
+    void MoveEnemy()
+    {
+        // Rörelse i den aktuella riktningen (endast höger eller vänster)
+        rb.velocity = new Vector2(speed, rb.velocity.y);
+
+        // Kolla om det är dags att stanna
+        if (Time.time - startTime >= stopTime)
+        {
+            // Stanna fienden
+            rb.velocity = Vector2.zero;
+
+            // Välj en ny riktning och återställ starttiden
+            speed = -speed;
+            startTime = Time.time + Random.Range(1f, 5f);  // Vänta mellan 1 och 5 sekunder innan nästa riktning väljs
+        }
     }
 }
