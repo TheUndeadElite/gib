@@ -7,28 +7,38 @@ using UnityEngine.UI;
 public class Playercontroller : MonoBehaviour
 {
     public float speed = 5;
-    Vector3 StartScale = Vector3.one;
+    private Rigidbody rb;
+    //Vector3 StartScale = Vector3.one;
     private void Start()
     {
-        StartScale = transform.localScale;
+        //StartScale = transform.localScale;
     }
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+        rb = GetComponent<Rigidbody>();
 
         Vector2 Movement = new Vector2(horizontalInput, 0f);
 
-        transform.Translate(Movement * speed * Time.deltaTime);
-        var horizontalSign = MathF.Sign(horizontalInput);
-        if (horizontalSign > 0.1f || horizontalSign < -0.1f)
+        if (horizontalInput < 0)
         {
-            var currentScale = StartScale;
-            currentScale.x = currentScale.x * horizontalInput;
-            transform.localScale = currentScale;
+            FlipCharacter(-1f);
         }
+        else if (horizontalInput < 0)
+        {
+            FlipCharacter(1f);
+        }
+    }
+       void FlipCharacter(float direction)
+       {
+            Vector3 scale = transform.localScale;
+            scale.x = direction;
+            transform.localScale = scale;
+       }
+    }
    
       
-    }
-}
+
+
 
 
