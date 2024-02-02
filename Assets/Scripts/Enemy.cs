@@ -1,38 +1,33 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 5f;        // Hastighet för fienden
-    public float stopTime = 5f;     // Tid att stanna i sekunder
-
+    public GameObject pointA;
+    public GameObject pointB;
     private Rigidbody2D rb;
-    private float startTime;
+    private Transform currentPoint;
+    public float speed;
+    
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        startTime = Time.time;
+     rb = GetComponent<Rigidbody2D>();
+        currentPoint = pointB.transform;
     }
 
     void Update()
     {
-        MoveEnemy();
-    }
-
-    void MoveEnemy()
-    {
-        // Rörelse i den aktuella riktningen (endast höger eller vänster)
-        rb.velocity = new Vector2(speed, rb.velocity.y);
-
-        // Kolla om det är dags att stanna
-        if (Time.time - startTime >= stopTime)
+      Vector2 Point = currentPoint.position - transform.position;
+        if(currentPoint == pointB.transform)
         {
-            // Stanna fienden
-            rb.velocity = Vector2.zero;
-
-            // Välj en ny riktning och återställ starttiden
-            speed = -speed;
-            startTime = Time.time + Random.Range(1f, 5f);  // Vänta mellan 1 och 5 sekunder innan nästa riktning väljs
+            rb.velocity = new Vector2(speed, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector2(-speed, 0);
         }
     }
 }
+
+    
