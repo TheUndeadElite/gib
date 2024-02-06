@@ -15,7 +15,7 @@ public class Jumpcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
         }
