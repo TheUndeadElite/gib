@@ -13,6 +13,7 @@ public class Playercontroller : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+
     float speed = 7;
     //Vector3 StartScale = Vector3.one;
     private void Start()
@@ -45,6 +46,8 @@ public class Playercontroller : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
+    //
+    
 }
 
 
