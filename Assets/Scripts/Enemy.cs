@@ -1,17 +1,23 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyPostrolling : MonoBehaviour
 {
-    public float speed = 5f;        // Hastighet för fienden
-    public float stopTime = 5f;     // Tid att stanna i sekunder
-
+    public float speed = 5f;
+    public GameObject pointA;
+    public GameObject pointB;
     private Rigidbody2D rb;
-    private float startTime;
+    private Transform currentPoint;
+    private float stopTime;
+    private float stopTimer;
+    private float nextRandomX;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        startTime = Time.time;
+        currentPoint = pointB.transform;
+
+        ChooseNextRandomX();
     }
 
     void Update()
@@ -21,18 +27,53 @@ public class Enemy : MonoBehaviour
 
     void MoveEnemy()
     {
-        // Rörelse i den aktuella riktningen (endast höger eller vänster)
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        Vector2 direction = (currentPoint.position - transform.position).normalized;
 
-        // Kolla om det är dags att stanna
-        if (Time.time - startTime >= stopTime)
+        // Check if it's time to stop
+        if (stopTimer > 0)
         {
-            // Stanna fienden
+            stopTimer -= Time.deltaTime;
             rb.velocity = Vector2.zero;
-
-            // Välj en ny riktning och återställ starttiden
-            speed = -speed;
-            startTime = Time.time + Random.Range(1f, 5f);  // Vänta mellan 1 och 5 sekunder innan nästa riktning väljs
         }
+        else
+        {
+            rb.velocity = direction * speed;
+
+            // Check if arrived at the current point
+            if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
+            {
+               
+
+                // Choose a new random X position
+                ChooseNextRandomX();
+
+                // Switch to the other point with the new X position
+                if (currentPoint == pointA.transform)
+                {
+                    currentPoint = new GameObject().transform; // Dummy GameObject for a new position
+                }
+                else
+                {
+                    currentPoint = new GameObject().transform; // Dummy GameObject for a new position
+                    currentPoint.position = new Vector2(nextRandomX, transform.position.y);
+                }
+                // Start the stop timer for 2 seconds
+                stopTimer = 2f;
+            }
+        }
+    }
+
+    
+
+    void ChooseNextRandomX()
+    {
+        nextRandomX = Random.Range(pointA.transform.position.x, pointB.transform.position.x);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
+        Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
+        Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
     }
 }
