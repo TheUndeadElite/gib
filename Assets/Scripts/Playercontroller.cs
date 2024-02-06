@@ -18,18 +18,23 @@ public class Playercontroller : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //StartScale = transform.localScale;
     }
-    void FixedUpdate()
+    void FixedUpdate() 
     {
+        //Walking
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-
+        if (horizontalInput == 0)
+        {      //La till add velocity istället för add force
+            rb.velocity = new Vector2(0.0f, rb.velocity.y);
+        }
         if (horizontalInput != 0)
         {
-            rb.AddForce (new Vector2(horizontalInput * speed, 0f));
+            rb.velocity = new Vector2(speed*horizontalInput, rb.velocity.y);
         }
+        //Flip sprite
         if (horizontalInput > 0)
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
