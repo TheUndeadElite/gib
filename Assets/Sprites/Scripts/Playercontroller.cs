@@ -23,12 +23,12 @@ public class Playercontroller : MonoBehaviour
     void FixedUpdate() 
     {
         //Walking
-
+        // WASD to move
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
         if (horizontalInput == 0)
-        {      //La till add velocity istället för add force
+        {      //La till add velocity istï¿½llet fï¿½r add force
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
         }
         if (horizontalInput != 0)
