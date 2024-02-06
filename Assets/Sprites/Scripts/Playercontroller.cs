@@ -13,7 +13,7 @@ public class Playercontroller : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
-    float speed = 10;
+    float speed = 7;
     //Vector3 StartScale = Vector3.one;
     private void Start()
     {
