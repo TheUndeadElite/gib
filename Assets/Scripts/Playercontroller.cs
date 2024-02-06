@@ -13,7 +13,7 @@ public class Playercontroller : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
-    float speed = 7;
+    float speed = 10;
     //Vector3 StartScale = Vector3.one;
     private void Start()
     {
@@ -22,7 +22,7 @@ public class Playercontroller : MonoBehaviour
     void FixedUpdate() 
     {
         //Walking
-
+        // WASD to move
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
