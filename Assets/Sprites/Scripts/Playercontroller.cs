@@ -13,7 +13,8 @@ public class Playercontroller : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
-    float speed = 10;
+
+    float speed = 7;
     //Vector3 StartScale = Vector3.one;
     private void Start()
     {
@@ -27,7 +28,7 @@ public class Playercontroller : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         if (horizontalInput == 0)
-        {      //La till add velocity istället för add force
+        {      //La till add velocity istï¿½llet fï¿½r add force
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
         }
         if (horizontalInput != 0)
@@ -45,6 +46,8 @@ public class Playercontroller : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
+    //
+    
 }
 
 
