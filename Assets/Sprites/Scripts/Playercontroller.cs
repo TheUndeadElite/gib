@@ -16,7 +16,15 @@ public class Playercontroller : MonoBehaviour
 
     float speed = 7;
 
+    //Olika "states" så jag kan växla mellan att gå och hoppa, och dashing
 
+    enum PlayerState
+    {
+        Walking,
+        Dashing
+    }
+
+    private PlayerState currentState = PlayerState.Walking;
     //Vector3 StartScale = Vector3.one;
     private void Start()
     {
@@ -48,8 +56,12 @@ public class Playercontroller : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
-    
-     
+
+        if (horizontalInput > 0)
+        {
+
+        }
+
     }
     //
     
