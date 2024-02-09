@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d00a1609e9bc8844865ec6d375daa77
+guid: ce98b3a99a79aca449b174479a73ecda
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,253 +123,194 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: utropstecken_for_spel_0
+      name: tiles_3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 300
-        width: 100
-        height: 100
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 32, y: 31}
+        - {x: -32, y: -12}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
       tessellationDetail: 0
       bones: []
-      spriteID: 882ed3bdd25946b4eabfcd8901a259ea
-      internalID: -940467213
+      spriteID: 31fe822f7c3179140b900a4bb2d9fdea
+      internalID: 1164559467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_1
+      name: tiles_3_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 300
-        width: 100
-        height: 100
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29084e45b643854c86614076367c85d
-      internalID: 1665816851
+      spriteID: 524b54c39fde9d34999b55ade8effd63
+      internalID: 2021184419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_2
+      name: tiles_3_2
       rect:
         serializedVersion: 2
-        x: 200
-        y: 300
-        width: 100
-        height: 100
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9e23d26698a9d4e81bad1f5d66cc35
-      internalID: -1000666125
+      spriteID: adf0caedd4102e44ebcc584bb0df87d8
+      internalID: -1107627134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_3
+      name: tiles_3_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 200
-        width: 100
-        height: 100
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd84f633f3a591408de494aaec8d3db
-      internalID: 184418141
+      spriteID: 7437403242ae4304eab41a74b87cb1ef
+      internalID: -363157390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac4cc7404022f9a4ead78fe5851de263
-      internalID: -1858860296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_5
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cbf6d4c1804dd94b976d665904d016f
-      internalID: 2124300221
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae32658567dd10741b2d145042e4c215
-      internalID: -1305303275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_7
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c861fe23d23de743a4984e1d0a9105c
-      internalID: -1828665364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_8
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15f539588029d3944b520acfe440bcb6
-      internalID: -1664280657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_9
+      name: tiles_3_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ca6c23823e10b5409cbba77bf414cf1
-      internalID: 326512950
+      spriteID: 9487631ca3aa3c142950890cc3759e58
+      internalID: -482462687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_10
+      name: tiles_3_5
       rect:
         serializedVersion: 2
-        x: 100
+        x: 64
         y: 0
-        width: 100
-        height: 100
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4caf31fed93c3444c94fce198e29b083
-      internalID: -1569035299
+      spriteID: 888d121272a747f4292e24835976f619
+      internalID: -431001528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_11
+      name: tiles_3_6
       rect:
         serializedVersion: 2
-        x: 200
+        x: 128
         y: 0
-        width: 100
-        height: 100
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27d326c44d4d1654d8f5349bf664368c
-      internalID: -1794379936
+      spriteID: d762aef1a05b2ee4cb34a3ca695bd763
+      internalID: -608347111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles_3_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54ececbb7878b0419b59ffa21e9691b
+      internalID: -1283453446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles_3_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945de87b771cbad4ea40140551336980
+      internalID: -1684644751
       vertices: []
       indices: 
       edges: []
@@ -385,18 +326,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      utropstecken_for_spel_0: -940467213
-      utropstecken_for_spel_1: 1665816851
-      utropstecken_for_spel_10: -1569035299
-      utropstecken_for_spel_11: -1794379936
-      utropstecken_for_spel_2: -1000666125
-      utropstecken_for_spel_3: 184418141
-      utropstecken_for_spel_4: -1858860296
-      utropstecken_for_spel_5: 2124300221
-      utropstecken_for_spel_6: -1305303275
-      utropstecken_for_spel_7: -1828665364
-      utropstecken_for_spel_8: -1664280657
-      utropstecken_for_spel_9: 326512950
+      tiles_3_0: 1164559467
+      tiles_3_1: 2021184419
+      tiles_3_2: -1107627134
+      tiles_3_3: -363157390
+      tiles_3_4: -482462687
+      tiles_3_5: -431001528
+      tiles_3_6: -608347111
+      tiles_3_7: -1283453446
+      tiles_3_8: -1684644751
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

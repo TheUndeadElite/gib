@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jumpcontroller : MonoBehaviour
+public class JumpController : MonoBehaviour
 {
     [SerializeField] float JumpPower;
     Rigidbody2D rb;
@@ -38,3 +38,4 @@ public class Jumpcontroller : MonoBehaviour
     }
 
 }
+

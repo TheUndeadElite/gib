@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d00a1609e9bc8844865ec6d375daa77
+guid: a5fc450a1d434934988182dcba4467cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: utropstecken_for_spel_0
+      name: Dirt_path2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 300
-        width: 100
-        height: 100
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882ed3bdd25946b4eabfcd8901a259ea
-      internalID: -940467213
+      spriteID: f80b9474b94e9324b8c9f448c089b111
+      internalID: -1945231909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_1
+      name: Dirt_path2_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 300
-        width: 100
-        height: 100
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c29084e45b643854c86614076367c85d
-      internalID: 1665816851
+      spriteID: dc592087508a1dc439a0eca98b79033c
+      internalID: -1713201509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_2
+      name: Dirt_path2_2
       rect:
         serializedVersion: 2
-        x: 200
-        y: 300
-        width: 100
-        height: 100
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee9e23d26698a9d4e81bad1f5d66cc35
-      internalID: -1000666125
+      spriteID: d75d000b85325de40b04b58872d1593c
+      internalID: -313427138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_3
+      name: Dirt_path2_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 200
-        width: 100
-        height: 100
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd84f633f3a591408de494aaec8d3db
-      internalID: 184418141
+      spriteID: 2f6a809397faa504da9b4f33d48d2005
+      internalID: 263352383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_4
+      name: Dirt_path2_4
       rect:
         serializedVersion: 2
-        x: 100
-        y: 200
-        width: 100
-        height: 100
+        x: 256
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,104 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac4cc7404022f9a4ead78fe5851de263
-      internalID: -1858860296
+      spriteID: dccaf4bb5a62cb34d8fb950e2b59453d
+      internalID: 248257839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_5
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 200
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cbf6d4c1804dd94b976d665904d016f
-      internalID: 2124300221
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae32658567dd10741b2d145042e4c215
-      internalID: -1305303275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_7
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c861fe23d23de743a4984e1d0a9105c
-      internalID: -1828665364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_8
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 100
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15f539588029d3944b520acfe440bcb6
-      internalID: -1664280657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: utropstecken_for_spel_9
+      name: Dirt_path2_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ca6c23823e10b5409cbba77bf414cf1
-      internalID: 326512950
+      spriteID: d2354b4cb4b044e41ba1036eed39a610
+      internalID: 1938303857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_10
+      name: Dirt_path2_6
       rect:
         serializedVersion: 2
-        x: 100
+        x: 64
         y: 0
-        width: 100
-        height: 100
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4caf31fed93c3444c94fce198e29b083
-      internalID: -1569035299
+      spriteID: 24fca2a02cee70545876cedcfe8c98fe
+      internalID: 1597784950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: utropstecken_for_spel_11
+      name: Dirt_path2_7
       rect:
         serializedVersion: 2
-        x: 200
+        x: 128
         y: 0
-        width: 100
-        height: 100
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +284,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27d326c44d4d1654d8f5349bf664368c
-      internalID: -1794379936
+      spriteID: 57619890182aa7e4abb8740fe583ebbd
+      internalID: -1719734180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_path2_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619f670d489a0734ba219e82b3300336
+      internalID: 1396824734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_path2_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 679e82bd97657f244be315c316b3ab47
+      internalID: -305975870
       vertices: []
       indices: 
       edges: []
@@ -385,18 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      utropstecken_for_spel_0: -940467213
-      utropstecken_for_spel_1: 1665816851
-      utropstecken_for_spel_10: -1569035299
-      utropstecken_for_spel_11: -1794379936
-      utropstecken_for_spel_2: -1000666125
-      utropstecken_for_spel_3: 184418141
-      utropstecken_for_spel_4: -1858860296
-      utropstecken_for_spel_5: 2124300221
-      utropstecken_for_spel_6: -1305303275
-      utropstecken_for_spel_7: -1828665364
-      utropstecken_for_spel_8: -1664280657
-      utropstecken_for_spel_9: 326512950
+      Dirt_path2_0: -1945231909
+      Dirt_path2_1: -1713201509
+      Dirt_path2_2: -313427138
+      Dirt_path2_3: 263352383
+      Dirt_path2_4: 248257839
+      Dirt_path2_5: 1938303857
+      Dirt_path2_6: 1597784950
+      Dirt_path2_7: -1719734180
+      Dirt_path2_8: 1396824734
+      Dirt_path2_9: -305975870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

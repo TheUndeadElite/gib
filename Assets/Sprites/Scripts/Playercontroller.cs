@@ -8,18 +8,29 @@ using UnityEngine.UI;
 
 public class Playercontroller : MonoBehaviour
 {
-    Rigidbody2D rb;
+    Rigidbody2D myRigidbody;
 
     float horizontalInput;
     float verticalInput;
 
 
     float speed = 7;
+
+    //Olika "states" så jag kan växla mellan att gå och hoppa, och dashing
+
+    enum PlayerState
+    {
+        Walking,
+        Dashing
+    }
+
+    private PlayerState currentState = PlayerState.Walking;
     //Vector3 StartScale = Vector3.one;
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
     }
+
     void FixedUpdate() 
     {
         //Walking
@@ -29,11 +40,11 @@ public class Playercontroller : MonoBehaviour
 
         if (horizontalInput == 0)
         {      //La till add velocity ist�llet f�r add force
-            rb.velocity = new Vector2(0.0f, rb.velocity.y);
+            myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
         }
         if (horizontalInput != 0)
         {
-            rb.velocity = new Vector2(speed*horizontalInput, rb.velocity.y);
+            myRigidbody.velocity = new Vector2(speed*horizontalInput, myRigidbody.velocity.y);
         }
         //Flip sprite
         if (horizontalInput > 0)
@@ -45,6 +56,12 @@ public class Playercontroller : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
+
+        if (horizontalInput > 0)
+        {
+
+        }
+
     }
     //
     
