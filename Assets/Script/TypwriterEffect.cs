@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TypwriterEffect : MonoBehaviour
+public class TypewriterEffect : MonoBehaviour
 {
 
   [SerializeField]  private float typewriterSpeed = 50f;
 
 
- public void Run(string textToType, TMP_Text textLabel)
+ public Coroutine Run(string textToType, TMP_Text textLabel)
     {
-        StartCoroutine(TypeText(textToType, textLabel));
+       return StartCoroutine(TypeText(textToType, textLabel));
     }
 
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
         textLabel.text = string.Empty;
 
-        yield return new WaitForSeconds(2);
+       
 
         float t = 0;
         int charIndex = 0;
