@@ -17,6 +17,8 @@ public class Playercontroller : MonoBehaviour
 
     private PlayerState currentState = PlayerState.Walking;
 
+    [SerializeField] private float exclamationMarkYOffset = 1.0f; // Serialized field to adjust the Y-axis offset
+
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
     private void Start()
@@ -60,7 +62,7 @@ public class Playercontroller : MonoBehaviour
                 GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
                 if (exclamationMarkPrefab != null)
                 {
-                    Vector3 spawnPosition = other.transform.position + new Vector3(0, 1, 0); // Adjust the offset as needed
+                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
                     exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
                 }
                 else
