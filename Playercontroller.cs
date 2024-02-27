@@ -17,9 +17,7 @@ public class Playercontroller : MonoBehaviour
     float speed = 7;
 
     float sprintDuration = 5.0f;
-    float sprintSpeed = 7;
     private float sprintTimer;
-    private float sprintMax = 5.0f;
     private bool isSprinting;
 
     //Olika "states" så jag kan växla mellan att gå och hoppa, och dashing
@@ -32,16 +30,20 @@ public class Playercontroller : MonoBehaviour
         isSprinting = false;
     }
 
+    void Update()
+    {
+        Debug.Log(speed);
+    }
+
     void FixedUpdate()
     {
-
-        {
-
 
             //Walking
             // WASD to move
             horizontalInput = Input.GetAxisRaw("Horizontal");
             verticalInput = Input.GetAxisRaw("Vertical");
+
+        
 
             if (horizontalInput == 0)
             {      //La till add velocity ist�llet f�r add force
@@ -78,21 +80,14 @@ public class Playercontroller : MonoBehaviour
                     sprintDuration -= Time.deltaTime;
                     if (sprintDuration <= 0f)
                         StopSprint();
-
-                    if (Input.GetKey(KeyCode.LeftShift) && isSprinting)
-                    {
-                        speed = speed * 2;
-                    }
-                    else
-                    {
-                        speed = 7;
-                    }
+                speed = 14;
 
                 }
 
                 void StopSprint()
                 {
                     isSprinting = false;
+                speed = 7;
                     sprintDuration = 0;
                 }
 
@@ -101,9 +96,6 @@ public class Playercontroller : MonoBehaviour
 
 
             }
-
-        }
-
 
     }
 }

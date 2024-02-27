@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Playercontroller : MonoBehaviour
-{
+{ 
+
     Rigidbody2D myRigidbody;
     float horizontalInput;
     float verticalInput;
     float speed = 7;
+    float Sprintspeed = 10;
+
+    float sprintDuration = 5.0f;
+    private float sprintTimer;
+    private bool isSprinting;
 
     enum PlayerState
     {
@@ -26,8 +32,10 @@ public class Playercontroller : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        Debug.Log(isSprinting);
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -49,28 +57,63 @@ public class Playercontroller : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Interactable"))
-        {
-            // Check if an exclamation mark instance doesn't already exist
-            if (exclamationMarkInstance == null)
+        //Sprint
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                // Attempt to load the prefab from the Resources folder
-                GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
-                if (exclamationMarkPrefab != null)
+                isSprinting = true;
+            }
+            //else{
+            //    isSprinting = false;
+            //}
+
+            if (isSprinting)
+            {
+                Sprint();
+            }
+
+            void Sprint()
+            {
+                sprintDuration -= Time.deltaTime;
+                if (sprintDuration <= 0f)
+                    StopSprint();
+
+                float speed = isSprinting ? Sprintspeed : 5.0f;
+
+                Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
+                transform.Translate(movement * speed * Time.deltaTime);
+            }
+
+            void StopSprint()
+            {
+                isSprinting = false;
+                sprintDuration = 5.0f;
+            }
+
+            //Sprint lasts 5 seconds
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Interactable"))
+            {
+                // Check if an exclamation mark instance doesn't already exist
+                if (exclamationMarkInstance == null)
                 {
-                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
-                    exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
-                }
-                else
-                {
-                    Debug.LogError("Failed to load exclamation mark prefab.");
+                    // Attempt to load the prefab from the Resources folder
+                    GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
+                    if (exclamationMarkPrefab != null)
+                    {
+                        Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
+                        exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to load exclamation mark prefab.");
+                    }
                 }
             }
         }
+    
+        
     }
 
 
@@ -86,4 +129,5 @@ public class Playercontroller : MonoBehaviour
             }
         }
     }
+
 }
