@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Yes
   m_EditorClassIdentifier: 
   dialogue:
-  - 'hi how are you '
-  - 'I am good '
+  - "yes it\xB4s"
+  responses: []
