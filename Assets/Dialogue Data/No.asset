@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: No
   m_EditorClassIdentifier: 
   dialogue:
-  - 'No I dont '
+  - "No it\xB4s"
   responses: []

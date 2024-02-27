@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   dialogue:
-  - 'hi how are you '
-  - 'I am good '
+  - "hi what a good day \n"
+  - "do you think it\xB4s a good day?"
+  responses:
+  - responseText: Yes
+    dialogueObject: {fileID: 11400000, guid: a5c8b3a1cb401a949a63dc6c803442fb, type: 2}
+  - responseText: No
+    dialogueObject: {fileID: 11400000, guid: f55d4de2f8b282b499f7b0c4089cd103, type: 2}
