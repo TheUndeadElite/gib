@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Playercontroller : MonoBehaviour
 {
+    [SerializeField] private DiglogueUI diglogueUI;
+
+    public DiglogueUI DiglogueUI => diglogueUI;
+
+    public IInteractable interactabel { get; set; }
+
     Rigidbody2D myRigidbody;
     float horizontalInput;
     float verticalInput;
@@ -85,5 +91,12 @@ public class Playercontroller : MonoBehaviour
                 exclamationMarkInstance = null; // Reset the reference
             }
         }
+    }
+    private void Update()
+    {
+      if (Input.GetKeyDown(KeyCode.E))
+        {
+          interactabel.Interact(this);    
+        } 
     }
 }
