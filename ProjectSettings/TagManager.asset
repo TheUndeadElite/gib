@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Interactable
+  - Enemy
+  - Knight
   layers:
   - Default
   - TransparentFX

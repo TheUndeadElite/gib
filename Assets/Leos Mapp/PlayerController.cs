@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
     float verticalInput;
     float Sprintspeed = 10;
 
-    float sprintDuration = 5.0f;
-    private float sprintTimer;
-    private bool isSprinting;
+    //float sprintDuration = 5.0f;
+    //private float sprintTimer;
+    //private bool isSprinting;
 
     enum PlayerState
     {
@@ -84,23 +84,23 @@ public class PlayerController : MonoBehaviour
             //    Sprint();
             //}
 
-            void Sprint()
-            {
-                sprintDuration -= Time.deltaTime;
-                if (sprintDuration <= 0f)
-                    StopSprint();
+            //void Sprint()
+            //{
+            //    sprintDuration -= Time.deltaTime;
+            //    if (sprintDuration <= 0f)
+            //        StopSprint();
 
-                float speed = isSprinting ? Sprintspeed : 5.0f;
+            //    float speed = isSprinting ? Sprintspeed : 5.0f;
 
-                Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
-                transform.Translate(movement * speed * Time.deltaTime);
-            }
+            //    Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
+            //    transform.Translate(movement * speed * Time.deltaTime);
+            //}
 
-            void StopSprint()
-            {
-                isSprinting = false;
-                sprintDuration = 5.0f;
-            }
+            //void StopSprint()
+            //{
+            //    isSprinting = false;
+            //    sprintDuration = 5.0f;
+            //}
 
             //Sprint lasts 5 seconds
 
@@ -131,13 +131,13 @@ public class PlayerController : MonoBehaviour
         //Sprint();
         //StopSprint();
 
-        if (diglogueUI.IsOpen) return;
+       // if (diglogueUI.IsOpen) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             interactabel.Interact(this);
         }
-
+        //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Sprint();
