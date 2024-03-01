@@ -13,14 +13,12 @@ public class Playercontroller : MonoBehaviour
     Rigidbody2D myRigidbody;
     float horizontalInput;
     float verticalInput;
+    float speed = 7;
+    float Sprintspeed = 10;
 
-
-
-    //float Sprintspeed = 10;
-
-    //float sprintDuration = 5.0f;
-    //private float sprintTimer;
-    //private bool isSprinting;
+    float sprintDuration = 5.0f;
+    private float sprintTimer;
+    private bool isSprinting;
 
     enum PlayerState
     {
@@ -69,7 +67,6 @@ public class Playercontroller : MonoBehaviour
             {
                 isSprinting = true;
             }
-            
             //else{
             //    isSprinting = false;
             //}
@@ -79,56 +76,51 @@ public class Playercontroller : MonoBehaviour
                 Sprint();
             }
 
+            void Sprint()
+            {
+                sprintDuration -= Time.deltaTime;
+                if (sprintDuration <= 0f)
+                    StopSprint();
 
+                float speed = isSprinting ? Sprintspeed : 5.0f;
 
-        //Sprint lasts 5 seconds
-        //Sprint();
-        //StopSprint();
+                Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
+                transform.Translate(movement * speed * Time.deltaTime);
+            }
+
+            void StopSprint()
+            {
+                isSprinting = false;
+                sprintDuration = 5.0f;
+            }
+
+            //Sprint lasts 5 seconds
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Interactable"))
+            {
+                // Check if an exclamation mark instance doesn't already exist
+                if (exclamationMarkInstance == null)
+                {
+                    // Attempt to load the prefab from the Resources folder
+                    GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
+                    if (exclamationMarkPrefab != null)
+                    {
+                        Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
+                        exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to load exclamation mark prefab.");
+                    }
+                }
+            }
+        }
     
         
     }
 
-    //void Sprint()
-    //{
-    //    sprintDuration -= Time.deltaTime;
-    //    if (sprintDuration <= 0f)
-    //    {
-    //        StopSprint();
-    //    }
-
-    //    float speed = isSprinting ? Sprintspeed : 5.0f;
-
-    //    Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
-    //    transform.Translate(movement * speed * Time.deltaTime);
-    //}
-
-    //void StopSprint()
-    //{
-    //    isSprinting = false;
-    //    sprintDuration = 5.0f;
-    //}
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Interactable"))
-        {
-            // Check if an exclamation mark instance doesn't already exist
-            if (exclamationMarkInstance == null)
-            {
-                // Attempt to load the prefab from the Resources folder
-                GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
-                if (exclamationMarkPrefab != null)
-                {
-                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
-                    exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
-                }
-                else
-                {
-                    Debug.LogError("Failed to load exclamation mark prefab.");
-                }
-            }
-        }
-    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -142,11 +134,7 @@ public class Playercontroller : MonoBehaviour
             }
         }
     }
-    private void Update()
-    {
-      if (Input.GetKeyDown(KeyCode.E))
-        {
-          interactabel.Interact(this);    
-        } 
-    }
+       
+   
+    
 }
