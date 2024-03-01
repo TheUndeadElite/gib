@@ -1,7 +1,7 @@
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyPatrolling : MonoBehaviour
 {
     public GameObject pointA;
     public GameObject pointB;
@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-     rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
     }
 
@@ -39,11 +39,13 @@ public class Enemy : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
+        if (pointA == null || pointB == null)
+        {
+            return;
+        }
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
-
-
     }
 
 }
