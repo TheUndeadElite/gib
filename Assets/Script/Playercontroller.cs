@@ -142,11 +142,5 @@ public class Playercontroller : MonoBehaviour
             }
         }
     }
-    private void Update()
-    {
-      if (Input.GetKeyDown(KeyCode.E))
-        {
-          interactabel.Interact(this);    
-        } 
-    }
+
 }
