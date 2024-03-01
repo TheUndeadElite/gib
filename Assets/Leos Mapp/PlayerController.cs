@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
         Walking,
         Dashing
     }
-
+    //public void SetVerticalInput(float aValue)
+    //{ verticalInput = aValue; }
     private PlayerState currentState = PlayerState.Walking;
 
     [SerializeField] private float exclamationMarkYOffset = 1.0f; // Serialized field to adjust the Y-axis offset
