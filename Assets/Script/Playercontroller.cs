@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playercontroller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [SerializeField] float speed = 8.0f;
+    [SerializeField] float sprintSpeed = 12.0f;
+
     [SerializeField] private DiglogueUI diglogueUI;
+
+    float speedAtStart;
 
     public DiglogueUI DiglogueUI => diglogueUI;
 
@@ -34,14 +39,16 @@ public class Playercontroller : MonoBehaviour
 
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
-    private void Start()
+    private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+
+        speedAtStart = speed;
     }
 
     void Update()
     {
-        Debug.Log(isSprinting);
+        // Debug.Log(isSprinting);
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -65,27 +72,44 @@ public class Playercontroller : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
         //Sprint
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                isSprinting = true;
-            }
+            //if (Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    isSprinting = true;
+            //}
             
             //else{
             //    isSprinting = false;
             //}
 
-            if (isSprinting)
-            {
-                Sprint();
-            }
+            //if (isSprinting)
+            //{
+            //    Sprint();
+            //}
 
 
 
         //Sprint lasts 5 seconds
         //Sprint();
         //StopSprint();
-    
-        
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            interactabel.Interact(this);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Sprint();
+        }
+        else
+        {
+            speed = speedAtStart;
+        }
+    }
+
+    void Sprint()
+    {
+        speed = sprintSpeed;
     }
 
     //void Sprint()
