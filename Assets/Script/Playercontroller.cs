@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myRigidbody;
     float horizontalInput;
     float verticalInput;
-    float speed = 7;
     float Sprintspeed = 10;
 
     float sprintDuration = 5.0f;
@@ -125,11 +124,13 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-    
-        
+
+
         //Sprint lasts 5 seconds
         //Sprint();
         //StopSprint();
+
+        if (diglogueUI.IsOpen) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
