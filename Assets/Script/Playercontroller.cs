@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Playercontroller : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] float speed = 7;
-    [SerializeField] float sprintMultiplier = 1.3f;
+    [SerializeField] private DiglogueUI diglogueUI;
+
+    public DiglogueUI DiglogueUI => diglogueUI;
+
+    public IInteractable interactabel { get; set; }
 
     Rigidbody2D myRigidbody;
     float horizontalInput;
@@ -140,5 +142,11 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    private void Update()
+    {
+      if (Input.GetKeyDown(KeyCode.E))
+        {
+          interactabel.Interact(this);    
+        } 
+    }
 }
