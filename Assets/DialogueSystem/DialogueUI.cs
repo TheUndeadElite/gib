@@ -9,6 +9,8 @@ public class DiglogueUI : MonoBehaviour
     [SerializeField] private DialogueObject testDialogue;
     [SerializeField] private GameObject dialogueBox;
 
+    public bool IsOpen { get; private set; }
+
     private ResponseHandler responseHandler;
     private TypewriterEffect typewriterEffect;
 
@@ -22,6 +24,7 @@ public class DiglogueUI : MonoBehaviour
 
     public void showDialogue(DialogueObject dialogueObject)
     {
+      IsOpen = true;
      StartCoroutine(stepThruoghDialogue(dialogueObject));
       dialogueBox.SetActive(true);
     }
@@ -60,6 +63,7 @@ public class DiglogueUI : MonoBehaviour
 
      private void CloseDialogueBox()
     {
+        IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text= string.Empty;
     }

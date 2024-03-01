@@ -2,32 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playercontroller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [SerializeField] float speed = 8.0f;
+    [SerializeField] float sprintSpeed = 12.0f;
+
+    [SerializeField] private DiglogueUI diglogueUI;
+
+    float speedAtStart;
+
+    public DiglogueUI DiglogueUI => diglogueUI;
+
+    public IInteractable interactabel { get; set; }
+
     Rigidbody2D myRigidbody;
     float horizontalInput;
     float verticalInput;
-    float speed = 7;
+
+
+
+    //float Sprintspeed = 10;
+
+    //float sprintDuration = 5.0f;
+    //private float sprintTimer;
+    //private bool isSprinting;
 
     enum PlayerState
     {
         Walking,
         Dashing
     }
-
+    //public void SetVerticalInput(float aValue)
+    //{ verticalInput = aValue; }
     private PlayerState currentState = PlayerState.Walking;
 
     [SerializeField] private float exclamationMarkYOffset = 1.0f; // Serialized field to adjust the Y-axis offset
 
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
-    private void Start()
+    private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+
+        speedAtStart = speed;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        // Debug.Log(isSprinting);
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -49,9 +72,68 @@ public class Playercontroller : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
+        //Sprint
+            //if (Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    isSprinting = true;
+            //}
+            
+            //else{
+            //    isSprinting = false;
+            //}
+
+            //if (isSprinting)
+            //{
+            //    Sprint();
+            //}
+
+
+
+        //Sprint lasts 5 seconds
+        //Sprint();
+        //StopSprint();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            interactabel.Interact(this);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Sprint();
+        }
+        else
+        {
+            speed = speedAtStart;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Sprint()
+    {
+        speed = sprintSpeed;
+    }
+
+    //void Sprint()
+    //{
+    //    sprintDuration -= Time.deltaTime;
+    //    if (sprintDuration <= 0f)
+    //    {
+    //        StopSprint();
+    //    }
+
+    //    float speed = isSprinting ? Sprintspeed : 5.0f;
+
+    //    Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
+    //    transform.Translate(movement * speed * Time.deltaTime);
+    //}
+
+    //void StopSprint()
+    //{
+    //    isSprinting = false;
+    //    sprintDuration = 5.0f;
+    //}
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Interactable"))
         {
@@ -73,7 +155,6 @@ public class Playercontroller : MonoBehaviour
         }
     }
 
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Interactable"))
@@ -86,4 +167,5 @@ public class Playercontroller : MonoBehaviour
             }
         }
     }
+
 }
