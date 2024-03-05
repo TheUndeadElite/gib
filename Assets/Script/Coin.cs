@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     [System.NonSerialized]
     public int value;
+    [SerializeField] GameObject pickUpEffect;
 
 
     void Start()
@@ -23,6 +24,7 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Knight"))
         {
+            Instantiate(pickUpEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             CoinCounter.Instance.IncreaseCoins(value);
             Debug.Log("Total coins collected: " + CoinCounter.Instance.currentCoins); // Add debug log
