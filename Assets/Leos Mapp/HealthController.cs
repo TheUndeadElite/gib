@@ -9,26 +9,23 @@ public class HealthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MaxHealth = CurrentHealth;
+        CurrentHealth = MaxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int damageAmount)
     {
-        CurrentHealth -= amount;
+        CurrentHealth -= damageAmount;
 
         if (CurrentHealth <= 0)
         {
-            //player dies
+            Die();
         }
     }
-    
-        
-    
 
-
-    // Update is called once per frame
-    void Update()
+    void Die()
     {
-        
+        // Implement death behavior (e.g., play death animation, deactivate GameObject, etc.)
+        gameObject.SetActive(false);
     }
+
 }
