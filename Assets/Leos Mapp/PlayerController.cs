@@ -133,10 +133,7 @@ public class PlayerController : MonoBehaviour
 
        // if (diglogueUI.IsOpen) return;
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            interactabel.Interact(this);
-        }
+      
         //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
         {
