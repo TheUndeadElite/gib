@@ -2309,7 +2309,7 @@ MonoBehaviour:
   speed: 8
   sprintSpeed: 12
   diglogueUI: {fileID: 0}
-  exclamationMarkYOffset: 1
+  exclamationMarkYOffset: 1.5
 --- !u!1 &1580050447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,6 +3350,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 757272386087285134, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 1178990333405067874, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: exclamationMarkYOffset
       value: 1.5
@@ -3417,6 +3421,10 @@ PrefabInstance:
     - target: {fileID: 6051938976538135141, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_GravityScale
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336362145240769733, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6923931286529549847, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: JumpPower
