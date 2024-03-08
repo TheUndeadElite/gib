@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Enemy
   - Knight
+  - Sword
   layers:
   - Default
   - TransparentFX

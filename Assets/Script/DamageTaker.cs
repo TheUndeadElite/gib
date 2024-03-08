@@ -39,13 +39,13 @@ public class DamageTaker : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D amount)
-    {
-        if (amount.CompareTag("Knight"))
-        {
-            TakeDamage(10);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D amount)
+    //{
+    //    if (amount.CompareTag("Knight"))
+    //    {
+    //        TakeDamage(10);
+    //    }
+    //}
 
     void Die()
     {
