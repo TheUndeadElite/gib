@@ -53,20 +53,3 @@ public class DiglogueUI : MonoBehaviour
             CloseDialogueBox();
         }
 
-
-
-
-
-   
-    }
-
-
-     private void CloseDialogueBox()
-    {
-        IsOpen = false;
-        dialogueBox.SetActive(false);
-        textLabel.text= string.Empty;
-    }
-
-
-}
