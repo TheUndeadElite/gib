@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 8.0f;
     [SerializeField] float sprintSpeed = 12.0f;
 
-    [SerializeField] private DiglogueUI diglogueUI;
+    
 
     float speedAtStart;
 
-    public DiglogueUI DiglogueUI => diglogueUI;
+   
 
-    public IInteractable interactabel { get; set; }
+    
 
     Rigidbody2D myRigidbody;
     float horizontalInput;
