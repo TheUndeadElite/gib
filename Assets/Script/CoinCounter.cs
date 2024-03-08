@@ -9,6 +9,7 @@ public class CoinCounter : MonoBehaviour
 
     public TMP_Text coinText;
     public int currentCoins = 0;
+    [SerializeField] Animator canvasAnimator;
 
     void Awake()
     {
@@ -16,11 +17,12 @@ public class CoinCounter : MonoBehaviour
     }
     void Start()
     {
-        coinText.text = "Coins: " + currentCoins.ToString();
+        coinText.text = currentCoins.ToString();
     }
     public void IncreaseCoins(int v)
     {
     currentCoins += v;
-        coinText.text = "Coins: "+ currentCoins.ToString();
+        coinText.text =  currentCoins.ToString();
+        canvasAnimator.SetTrigger("CoinPickUp");
     }
 }
