@@ -104,27 +104,7 @@ public class PlayerController : MonoBehaviour
 
             //Sprint lasts 5 seconds
 
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Interactable"))
-            {
-                // Check if an exclamation mark instance doesn't already exist
-                if (exclamationMarkInstance == null)
-                {
-                    // Attempt to load the prefab from the Resources folder
-                    GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
-                    if (exclamationMarkPrefab != null)
-                    {
-                        Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
-                        exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
-                    }
-                    else
-                    {
-                        Debug.LogError("Failed to load exclamation mark prefab.");
-                    }
-                }
-            }
-        }
+        
 
 
         //Sprint lasts 5 seconds
@@ -144,7 +124,28 @@ public class PlayerController : MonoBehaviour
             speed = speedAtStart;
         }
     }
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            Debug.Log("INTERAVNAWFJE");
+            // Check if an exclamation mark instance doesn't already exist
+            if (exclamationMarkInstance == null)
+            {
+                // Attempt to load the prefab from the Resources folder
+                GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
+                if (exclamationMarkPrefab != null)
+                {
+                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
+                    exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("Failed to load exclamation mark prefab.");
+                }
+            }
+        }
+    }
     void Sprint()
     {
         speed = sprintSpeed;
