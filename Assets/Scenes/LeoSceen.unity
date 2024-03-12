@@ -2419,6 +2419,7 @@ GameObject:
   - component: {fileID: 1437212548}
   - component: {fileID: 1437212550}
   - component: {fileID: 1437212549}
+  - component: {fileID: 1437212551}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -2506,6 +2507,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1437212551
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437212547}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000047683716, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1001 &1500312839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2582,6 +2618,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4643477366059748531, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2798493
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643477366059748531, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5450753
+      objectReference: {fileID: 0}
     - target: {fileID: 6051938976538135141, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_Material
       value: 
@@ -2598,7 +2642,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.82
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3937861734805310910, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3844757661318595516, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}

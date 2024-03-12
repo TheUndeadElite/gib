@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 8.0f;
     [SerializeField] float sprintSpeed = 12.0f;
 
-    
+    float dashForce = 500f;
+    bool isDashing = false;
 
     float speedAtStart;
 
-   
 
+    [SerializeField] Animator characterAnimator;
     
 
     Rigidbody2D myRigidbody;
@@ -24,14 +25,9 @@ public class PlayerController : MonoBehaviour
     //private float sprintTimer;
     //private bool isSprinting;
 
-    enum PlayerState
-    {
-        Walking,
-        Dashing
-    }
+
     //public void SetVerticalInput(float aValue)
     //{ verticalInput = aValue; }
-    private PlayerState currentState = PlayerState.Walking;
 
     [SerializeField] private float exclamationMarkYOffset = 1.0f; // Serialized field to adjust the Y-axis offset
 
@@ -42,6 +38,11 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
 
         speedAtStart = speed;
+    }
+    private void Start()
+    {
+        myRigidbody = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
@@ -54,10 +55,13 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput == 0)
         {
             myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
+            characterAnimator.SetBool("isWalking", false);
         }
         if (horizontalInput != 0)
         {
             myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
+            characterAnimator.SetBool("isWalking", true);
+
         }
 
         if (horizontalInput > 0)
@@ -123,7 +127,15 @@ public class PlayerController : MonoBehaviour
         {
             speed = speedAtStart;
         }
+        
+        //dashing
+
+        //if (Input.GetKey(KeyCode.Q) && !IsDashing)
+        //{
+        //    StartCorountine(Dash());
+        //}
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Interactable"))
