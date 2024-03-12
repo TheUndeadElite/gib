@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     //private float sprintTimer;
     //private bool isSprinting;
 
+    [SerializeField] Animator characterAnimator;
+
     enum PlayerState
     {
         Walking,
@@ -54,10 +56,12 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput == 0)
         {
             myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
+            characterAnimator.SetBool("isWalking", false);
         }
         if (horizontalInput != 0)
         {
             myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
+            characterAnimator.SetBool("isWalking", true);
         }
 
         if (horizontalInput > 0)
