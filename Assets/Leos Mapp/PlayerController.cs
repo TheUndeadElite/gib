@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Interactable"))
         {
-            Debug.Log("INTERAVNAWFJE");
+            Debug.Log("sign");
             // Check if an exclamation mark instance doesn't already exist
             if (exclamationMarkInstance == null)
             {
