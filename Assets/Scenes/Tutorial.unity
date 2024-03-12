@@ -1986,7 +1986,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 1929479367}
   dialogText: {fileID: 1000768534}
-  dialog: Hi deer welcome to me and  my friends grupp
+  dialogues:
+  - bdasjfbvesdghldgulihcdx<iochduslfdhisfuvhure
+  - bvcjdsbfewkjdbvkdwbkdwbgfuiwbfhwejbcewujguewigfueqi
   PlayerInRange: 0
 --- !u!1 &1000768532
 GameObject:
@@ -2108,7 +2110,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 93.61737, z: 0, w: 25.532043}
+  m_margin: {x: 23.701538, y: 93.61737, z: 0, w: 25.532043}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
