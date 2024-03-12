@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Knight
   - Sword
+  - Sign
   layers:
   - Default
   - TransparentFX

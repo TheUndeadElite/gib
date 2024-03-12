@@ -1955,10 +1955,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign
       objectReference: {fileID: 0}
+    - target: {fileID: 5317209512578299090, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
+      propertyPath: m_TagString
+      value: Sign
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5317209512578299090, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 335797478}
   m_SourcePrefab: {fileID: 100100000, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
 --- !u!1 &335797477 stripped
 GameObject:
@@ -1974,9 +1981,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 335797477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb2c2b7a83083e4f83d352d1c9206f9, type: 3}
+  m_Script: {fileID: 11500000, guid: f1758f15cbbe3c74ba5aed1664a6b680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogBox: {fileID: 1929479367}
+  dialogText: {fileID: 1000768534}
+  dialogues:
+  - bdasjfbvesdghldgulihcdx<iochduslfdhisfuvhure
+  - bvcjdsbfewkjdbvkdwbkdwbgfuiwbfhwejbcewujguewigfueqi
+  PlayerInRange: 0
 --- !u!1 &1000768532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,7 +2047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '  New Text'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a1a26efed5ec3a458be99c6973dcb8f, type: 2}
   m_sharedMaterial: {fileID: 3023771976102740890, guid: 6a1a26efed5ec3a458be99c6973dcb8f, type: 2}
@@ -2097,7 +2110,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 93.61737, z: 0, w: 25.532043}
+  m_margin: {x: 23.701538, y: 93.61737, z: 0, w: 25.532043}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2198,6 +2211,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1695810976589076450, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695810976589076450, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2943524145897262755, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
@@ -3627,12 +3644,12 @@ GameObject:
   - component: {fileID: 1929479370}
   - component: {fileID: 1929479369}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DialogueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1929479368
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3807,12 +3824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc20da92884111541a7723a143f8a9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLabel: {fileID: 0}
-  testDialogue: {fileID: 11400000, guid: f9400c90f9148524295be644f33ca596, type: 2}
-  dialogueBox: {fileID: 0}
-  <IsOpen>k__BackingField: 0
-  responseHandler: {fileID: 0}
-  typewriterEffect: {fileID: 0}
 --- !u!114 &2088242575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3825,7 +3836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7596f7ba16077564094b6e2a526d12ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterSpeed: 50
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
