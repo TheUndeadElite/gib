@@ -27,12 +27,15 @@ public class Sign : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.E) && PlayerInRange)
         {
+            Debug.Log(dialogActive);
+
             if (dialogActive)
             {
                 if (typeCoroutine != null)
-                {
+                {   
                     StopCoroutine(typeCoroutine); // Stop typing coroutine if it's running
                 }
 
@@ -73,7 +76,7 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Knight"))
         {
             PlayerInRange = true;
         }
@@ -81,7 +84,7 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Knight"))
         {
             PlayerInRange = false;
         }
