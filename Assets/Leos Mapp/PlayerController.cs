@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(isSprinting);
+         Debug.Log("rotating");
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -74,25 +74,26 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
         //Sprint
-            //if (Input.GetKey(KeyCode.LeftShift))
-            //{
-            //    isSprinting = true;
-            //}
-            
-            //else{
-            //    isSprinting = false;
-            //}
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    isSprinting = true;
+        //}
 
-            //if (isSprinting)
-            //{
-            //    Sprint();
-            //}
+        //else
+        //{
+        //    isSprinting = false;
+        //}
 
-            //void Sprint()
-            //{
-            //    sprintDuration -= Time.deltaTime;
-            //    if (sprintDuration <= 0f)
-            //        StopSprint();
+        //if (isSprinting)
+        //{
+        //    Sprint();
+        //}
+
+        //void Sprint()
+        //{
+        //    sprintDuration -= Time.deltaTime;
+        //    if (sprintDuration <= 0f)
+        //        StopSprint();
 
             //    float speed = isSprinting ? Sprintspeed : 5.0f;
 
@@ -108,18 +109,18 @@ public class PlayerController : MonoBehaviour
 
             //Sprint lasts 5 seconds
 
-        
 
 
-        //Sprint lasts 5 seconds
-        //Sprint();
-        //StopSprint();
 
-       // if (diglogueUI.IsOpen) return;
+            //Sprint lasts 5 seconds
+            //Sprint();
+            //StopSprint();
 
-      
-        //Sprint
-        if (Input.GetKey(KeyCode.LeftShift))
+            // if (diglogueUI.IsOpen) return;
+
+
+            //Sprint
+            if (Input.GetKey(KeyCode.LeftShift))
         {
             Sprint();
         }

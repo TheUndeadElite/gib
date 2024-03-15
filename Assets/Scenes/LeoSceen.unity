@@ -2551,6 +2551,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1178990333405067874, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: characterAnimator
+      value: 
+      objectReference: {fileID: 1038310051}
+    - target: {fileID: 1178990333405067874, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: exclamationMarkYOffset
       value: 1.5
       objectReference: {fileID: 0}
@@ -2611,8 +2615,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3937861734805310910, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Size.y
+      value: 2.216254
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937861734805310910, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937861734805310910, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.56866515
       objectReference: {fileID: 0}
     - target: {fileID: 3937861734805310910, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_IsTrigger
@@ -2629,6 +2641,10 @@ PrefabInstance:
     - target: {fileID: 6051938976538135141, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051938976538135141, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6051938976538135141, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_GravityScale
