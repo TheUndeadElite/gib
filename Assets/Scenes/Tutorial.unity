@@ -1987,8 +1987,8 @@ MonoBehaviour:
   dialogBox: {fileID: 1929479367}
   dialogText: {fileID: 1000768534}
   dialogues:
-  - bdasjfbvesdghldgulihcdx<iochduslfdhisfuvhure
-  - bvcjdsbfewkjdbvkdwbkdwbgfuiwbfhwejbcewujguewigfueqi
+  - ' I will kill you'
+  - Just JK :)
   PlayerInRange: 0
 --- !u!1 &1000768532
 GameObject:
