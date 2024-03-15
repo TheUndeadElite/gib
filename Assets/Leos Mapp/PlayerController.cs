@@ -73,49 +73,7 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
-        //Sprint
-            //if (Input.GetKey(KeyCode.LeftShift))
-            //{
-            //    isSprinting = true;
-            //}
-            
-            //else{
-            //    isSprinting = false;
-            //}
-
-            //if (isSprinting)
-            //{
-            //    Sprint();
-            //}
-
-            //void Sprint()
-            //{
-            //    sprintDuration -= Time.deltaTime;
-            //    if (sprintDuration <= 0f)
-            //        StopSprint();
-
-            //    float speed = isSprinting ? Sprintspeed : 5.0f;
-
-            //    Vector2 movement = new Vector2(horizontalInput, verticalInput).normalized;
-            //    transform.Translate(movement * speed * Time.deltaTime);
-            //}
-
-            //void StopSprint()
-            //{
-            //    isSprinting = false;
-            //    sprintDuration = 5.0f;
-            //}
-
-            //Sprint lasts 5 seconds
-
         
-
-
-        //Sprint lasts 5 seconds
-        //Sprint();
-        //StopSprint();
-
-       // if (diglogueUI.IsOpen) return;
 
       
         //Sprint
