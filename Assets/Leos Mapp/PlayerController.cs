@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-         Debug.Log("rotating");
+         //Debug.Log("rotating");
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
