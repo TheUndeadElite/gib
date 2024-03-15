@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 
@@ -22,6 +22,7 @@ public class JumpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
@@ -35,6 +36,8 @@ public class JumpController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+
+            characterAnimator.SetBool("isJumping", false);
         }
     }
     private void OnCollisionExit2D(Collision2D other)

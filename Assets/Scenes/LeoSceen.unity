@@ -1513,6 +1513,32 @@ Transform:
   - {fileID: 1241881907}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &852285352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7414182775561202712, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+  m_PrefabInstance: {fileID: 1500312839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &852285355
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852285352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4382cb28e2ded80429f72ae968103c96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &943436638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,10 +2576,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 757272386087285134, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0895245
+      objectReference: {fileID: 0}
+    - target: {fileID: 757272386087285134, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.017998
+      objectReference: {fileID: 0}
+    - target: {fileID: 757272386087285134, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1658
+      objectReference: {fileID: 0}
+    - target: {fileID: 757272386087285134, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.61
+      objectReference: {fileID: 0}
     - target: {fileID: 1178990333405067874, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: characterAnimator
       value: 
-      objectReference: {fileID: 1038310051}
+      objectReference: {fileID: 852285355}
     - target: {fileID: 1178990333405067874, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: exclamationMarkYOffset
       value: 1.5
@@ -2654,9 +2696,29 @@ PrefabInstance:
       propertyPath: JumpPower
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 6923931286529549847, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: characterAnimator
+      value: 
+      objectReference: {fileID: 852285355}
     - target: {fileID: 7847731966965011249, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211121580198546617, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9599304
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211121580198546617, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16292977
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211121580198546617, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.19431973
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211121580198546617, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.1064738
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3937861734805310910, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
@@ -2669,6 +2731,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1695810976589076450, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       insertIndex: -1
       addedObject: {fileID: 346655710}
+    - targetCorrespondingSourceObject: {fileID: 7414182775561202712, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 852285355}
   m_SourcePrefab: {fileID: 100100000, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
 --- !u!1 &1533298159
 GameObject:
