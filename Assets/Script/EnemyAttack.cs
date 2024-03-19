@@ -10,14 +10,14 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
+        // Attackcooldown
         if (Time.time >= nextAttackTime)
         {
-            Attack();
             nextAttackTime = Time.time + cooldownTime;
         }
     }
 
-    void Attack()
+    public void Attack()
     {
         // Skapa en instans av Shadow Ball prefab vid attackpunktens position och rotation
         Instantiate(shadowBallPrefab, attackPoint.position, attackPoint.rotation);

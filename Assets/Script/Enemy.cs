@@ -5,9 +5,12 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 1.0f;
     public float retreatSpeed = 0.2f;
     public float stoppingDistance = 2.0f;
+    public float attackPreparationTime = 1.0f; // Tid för att förbereda attacken
 
     private Rigidbody2D rb2D;
     private Transform player;
+    private bool preparingToAttack = false;
+    private float attackPreparationTimer = 0f;
 
     void Start()
     {
@@ -18,6 +21,18 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         MoveTowardsPlayer();
+
+        if (preparingToAttack)
+        {
+            // Räkna ner attackförberedelsetiden
+            attackPreparationTimer -= Time.deltaTime;
+            if (attackPreparationTimer <= 0f)
+            {
+                // Attackera
+                Attack();
+                preparingToAttack = false;
+            }
+        }
     }
 
     void MoveTowardsPlayer()
@@ -30,21 +45,26 @@ public class Enemy : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(enemyPosition, playerPosition);
 
-        // Rör fienden mot spelaren med moveSpeed
         if (distanceToPlayer > stoppingDistance)
         {
+            // Rör fienden mot spelaren med moveSpeed
             Vector2 moveDirection = (playerPosition - enemyPosition).normalized;
             rb2D.velocity = moveDirection * moveSpeed;
         }
-        // Backa bort från spelaren med retreatSpeed
         else if (distanceToPlayer < stoppingDistance && distanceToPlayer > stoppingDistance / 2)
         {
-            Vector2 retreatDirection = (enemyPosition - playerPosition).normalized;
-            rb2D.velocity = retreatDirection * retreatSpeed;
+            // Förbered att attackera
+            preparingToAttack = true;
+            attackPreparationTimer = attackPreparationTime;
+
+            // Sluta backa
+            rb2D.velocity = Vector2.zero;
         }
         else
         {
-            rb2D.velocity = Vector2.zero;
+            // Backa bort från spelaren med retreatSpeed
+            Vector2 retreatDirection = (enemyPosition - playerPosition).normalized;
+            rb2D.velocity = retreatDirection * retreatSpeed;
         }
 
         // Kolla på spelaren beroende på deras position i förhållande till skärmen
@@ -61,5 +81,11 @@ public class Enemy : MonoBehaviour
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
+    }
+
+    void Attack()
+    {
+        // Lägg till kod för att utföra attacken här
+        Debug.Log("Fienden attackerar!");
     }
 }
