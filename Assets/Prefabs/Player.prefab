@@ -87,14 +87,15 @@ GameObject:
   m_Component:
   - component: {fileID: 3844757661318595516}
   - component: {fileID: 2943524145897262755}
-  - component: {fileID: 1178990333405067874}
   - component: {fileID: 6051938976538135141}
   - component: {fileID: 3937861734805310910}
   - component: {fileID: 6923931286529549847}
   - component: {fileID: 4643477366059748531}
+  - component: {fileID: 2947917163544715034}
+  - component: {fileID: 6210729588232877121}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Knight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,19 +169,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1178990333405067874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695810976589076450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20aaf310c29462d40a3b3d3248571347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exclamationMarkYOffset: 1.5
 --- !u!50 &6051938976538135141
 Rigidbody2D:
   serializedVersion: 4
@@ -266,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpPower: 18
+  characterAnimator: {fileID: 8570804003264653791}
 --- !u!70 &4643477366059748531
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -301,6 +290,36 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.38}
   m_Size: {x: 1.18, y: 2.61}
   m_Direction: 0
+--- !u!114 &2947917163544715034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695810976589076450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20aaf310c29462d40a3b3d3248571347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  sprintSpeed: 12
+  characterAnimator: {fileID: 8570804003264653791}
+  exclamationMarkYOffset: 1.5
+--- !u!114 &6210729588232877121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695810976589076450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43354cd265ef1d746abfb2a3ef4f9e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
+  CurrentHealth: 0
 --- !u!1 &7414182775561202712
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757272386087285134}
   - component: {fileID: 6336362145240769733}
+  - component: {fileID: 8570804003264653791}
   m_Layer: 0
   m_Name: playerGfx
   m_TagString: Untagged
@@ -327,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 7414182775561202712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.24, z: 0}
+  m_LocalPosition: {x: -0.121, y: -0.627, z: 0}
   m_LocalScale: {x: 3.017998, y: 3.017998, z: 3.017998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -373,15 +393,36 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e3d85d18f699ae944af7e2e494e87c06, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 450226411, guid: 3bb56ea9c19743b48905c4e2d8bb0de6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.475, y: 0.7375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8570804003264653791
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414182775561202712}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4382cb28e2ded80429f72ae968103c96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
