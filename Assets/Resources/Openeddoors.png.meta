@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf51b814b2407dc41ad89e280436581b
+guid: 910a1588f424dfb4091870be7a85b003
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,8 +48,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 194, y: 0, z: 113, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -123,85 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_Idle_Update_0
+      name: Openeddoors
       rect:
         serializedVersion: 2
-        x: 16
-        y: 3
-        width: 38
-        height: 59
+        x: 196
+        y: 0
+        width: 69
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e26bcdc3ac0b6864e83332a694bdb673
-      internalID: -102682701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_Idle_Update_1
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 3
-        width: 37
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cd750e0c2fc7be41b7bbdb1fa500816
-      internalID: 1518756294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_Idle_Update_2
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 3
-        width: 34
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b79ab357c7ee32644be71c41e781d615
-      internalID: -1764674487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_Idle_Update_3
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 3
-        width: 37
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9929b333e7659341ba4c90f7e4dbb15
-      internalID: -999599557
+      spriteID: 1e40a8054a7af0b4cb9f47e76c0bf9d8
+      internalID: 71919027
       vertices: []
       indices: 
       edges: []
@@ -210,17 +147,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight_Idle_Update_0: -102682701
-      Knight_Idle_Update_1: 1518756294
-      Knight_Idle_Update_2: -1764674487
-      Knight_Idle_Update_3: -999599557
+      Openeddoors: 71919027
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
