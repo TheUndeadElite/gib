@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d7684c46c6391547a0b9f5f655c5f04
+guid: 3bb56ea9c19743b48905c4e2d8bb0de6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_Idle_animation_0
+      name: Knight_Idle_update2_0
       rect:
         serializedVersion: 2
         x: 16
@@ -137,17 +137,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76863a51742fdc847b841337e1a32985
-      internalID: 2139892641
+      spriteID: 2577b6b4f70463e4080cc18b6765ab36
+      internalID: 450226411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_Idle_animation_1
+      name: Knight_Idle_update2_1
       rect:
         serializedVersion: 2
-        x: 98
+        x: 96
+        y: 3
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c9dea00f3213c42812d17d2e9206d6
+      internalID: 457788331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight_Idle_update2_2
+      rect:
+        serializedVersion: 2
+        x: 178
         y: 3
         width: 36
         height: 57
@@ -158,35 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc6d52868156154a8d1573edaeabff2
-      internalID: 1859842837
+      spriteID: 7a277612018be664e96b9c46ee7ea4eb
+      internalID: 922666067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_Idle_animation_2
-      rect:
-        serializedVersion: 2
-        x: 178
-        y: 3
-        width: 36
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 784dc1042903f4941bfe8e05ae00bc9a
-      internalID: -1772809762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight_Idle_animation_3
+      name: Knight_Idle_update2_3
       rect:
         serializedVersion: 2
         x: 258
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2906409e94eb9f348867f2eb45bbc4eb
-      internalID: 1958878807
+      spriteID: ec85bd4335864b042af2a2cfede3eb91
+      internalID: 1796033465
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Knight_Idle_animation_0: 2139892641
-      Knight_Idle_animation_1: 1859842837
-      Knight_Idle_animation_2: -1772809762
-      Knight_Idle_animation_3: 1958878807
+      Knight_Idle_update2_0: 450226411
+      Knight_Idle_update2_1: 457788331
+      Knight_Idle_update2_2: 922666067
+      Knight_Idle_update2_3: 1796033465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
