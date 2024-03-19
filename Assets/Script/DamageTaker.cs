@@ -7,6 +7,8 @@ public class DamageTaker : MonoBehaviour
     public int MaxHealth = 3;
     public int currentHealth;
 
+    [SerializeField] Animator snokenAnimator;
+
     public int damageAmount = 1;
 
 
@@ -35,6 +37,7 @@ public class DamageTaker : MonoBehaviour
         {
             
             healthComponent.TakeDamage(damageAmount);
+            snokenAnimator.SetBool("isAttacking", true);
         }
 
     }
