@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
 
     void Start()
     {
-        value = Random.Range(1, 15); 
+        value = Random.Range(1, 3); 
         Debug.Log("Coin value: " + value); 
     }
 

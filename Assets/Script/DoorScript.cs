@@ -108,7 +108,7 @@ public class DoorScript : MonoBehaviour
         if (collision.CompareTag("Knight"))
         {
             playerIsAtTheDoor = false;
-            StartCoroutine(ChangeScene());
+            // StartCoroutine(ChangeScene());
         }
     }
 
