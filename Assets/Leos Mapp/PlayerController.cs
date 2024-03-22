@@ -7,11 +7,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 8.0f;
     [SerializeField] float sprintSpeed = 12.0f;
 
-    float dashForce = 500f;
-    bool isDashing = false;
+    [SerializeField] bool isDashing = false;
 
     float speedAtStart;
-
 
     [SerializeField] Animator characterAnimator;
     
@@ -33,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
+    
+     
     private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -52,17 +52,33 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (horizontalInput == 0)
-        {
-            myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
-            characterAnimator.SetBool("isWalking", false);
-        }
-        if (horizontalInput != 0)
-        {
-            myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
-            characterAnimator.SetBool("isWalking", true);
 
+        if(isDashing)
+        {
+            if (gameObject.transform.localScale.x == 1)
+            {
+                myRigidbody.velocity = transform.right * 20;
+            }   else
+            {
+                myRigidbody.velocity = -transform.right * 20;
+            }
+            
+        }   else
+        {
+            if (horizontalInput == 0)
+            {
+                myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
+                characterAnimator.SetBool("isWalking", false);
+            }
+            if (horizontalInput != 0)
+            {
+                myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
+                characterAnimator.SetBool("isWalking", true);
+
+            }
         }
+
+        
 
         if (horizontalInput > 0)
         {
@@ -88,10 +104,17 @@ public class PlayerController : MonoBehaviour
         
         //dashing
 
-        //if (Input.GetKey(KeyCode.Q) && !IsDashing)
-        //{
-        //    StartCorountine(Dash());
-        //}
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !isDashing)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    IEnumerator Dash()
+    {
+        isDashing = true;
+        yield return new WaitForSeconds(0.15f);
+        isDashing = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
