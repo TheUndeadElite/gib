@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         
         //dashing
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !isDashing)
+        if ((Input.GetKeyDown(KeyCode.LeftControl)|| Input.GetKeyDown(KeyCode.Mouse1)) && !isDashing)
         {
             StartCoroutine(Dash());
         }
