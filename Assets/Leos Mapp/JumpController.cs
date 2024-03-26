@@ -11,12 +11,13 @@ public class JumpController : MonoBehaviour
     Rigidbody2D rb;
     bool isGrounded;
 
-    [SerializeField] Animator characterAnimator;
+    Animator characterAnimator;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        characterAnimator = GetComponentInChildren<Animator>(); 
     }
 
     // Update is called once per frame
