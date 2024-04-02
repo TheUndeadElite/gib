@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6135164430498229635}
-  - component: {fileID: 7355718259824276077}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -26,27 +25,12 @@ Transform:
   m_GameObject: {fileID: 1384433449810866223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0.65, z: 0}
+  m_LocalPosition: {x: 1.38, y: 0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543457353887539542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7355718259824276077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384433449810866223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eaca7ea21966f341bbf5b8ed8651c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shadowBallPrefab: {fileID: 0}
-  attackPoint: {fileID: 6135164430498229635}
-  cooldownTime: 2
 --- !u!1 &2219524212198748204
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 543457353887539542}
   - component: {fileID: 8439558445328098927}
-  - component: {fileID: 2939048115566238766}
   - component: {fileID: 8477520561309579853}
   - component: {fileID: 289764163270452346}
+  - component: {fileID: 2939048115566238766}
   - component: {fileID: 6925905714618168273}
-  - component: {fileID: 4905791008386702946}
+  - component: {fileID: 4657768713740280011}
   m_Layer: 0
   m_Name: Ghost_0
   m_TagString: Untagged
@@ -79,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.85, y: -1.1996214, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6135164430498229635}
@@ -137,21 +121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2939048115566238766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2219524212198748204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce6daf041a837340a1bda04eb5ea246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  retreatSpeed: 3
-  attackDistance: 5
 --- !u!70 &8477520561309579853
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -214,6 +183,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &2939048115566238766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219524212198748204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6daf041a837340a1bda04eb5ea246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  retreatSpeed: 3
+  attackDistance: 9
 --- !u!114 &6925905714618168273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
---- !u!114 &4905791008386702946
+--- !u!114 &4657768713740280011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,6 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaca7ea21966f341bbf5b8ed8651c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadowBallPrefab: {fileID: 0}
+  shadowBallPrefab: {fileID: 7996693400097521675, guid: f1c8b34f124e0bc438bc675b119fa1b6, type: 3}
   attackPoint: {fileID: 6135164430498229635}
   cooldownTime: 2
