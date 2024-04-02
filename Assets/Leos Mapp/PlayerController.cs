@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     float speedAtStart;
 
-    [SerializeField] Animator characterAnimator;
+    Animator characterAnimator;
     
 
     Rigidbody2D myRigidbody;
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        characterAnimator = GetComponentInChildren<Animator>();
 
         speedAtStart = speed;
     }
@@ -104,7 +105,7 @@ public class PlayerController : MonoBehaviour
         
         //dashing
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !isDashing)
+        if ((Input.GetKeyDown(KeyCode.LeftControl)|| Input.GetKeyDown(KeyCode.Mouse1)) && !isDashing)
         {
             StartCoroutine(Dash());
         }
