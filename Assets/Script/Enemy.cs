@@ -9,35 +9,58 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb2D;
     private Transform player;
     private EnemyAttack enemyAttack;
+    private bool isWithinAttackRange = false; // Kontrollerar om fienden är inom attackräckvidden
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Knight").transform;
         enemyAttack = GetComponent<EnemyAttack>();
+
+        // Aktivera fienden vid start
+        gameObject.SetActive(true);
     }
 
     void Update()
     {
-        MoveTowardsPlayer();
-
-        // Om spelaren är inom attackräckvidden, attackera
-        if (Vector2.Distance(transform.position, player.position) <= attackDistance)
+        // Kolla om fienden är synlig för kameran
+        if (IsVisible())
         {
-            enemyAttack.Attack();
-        }
+            MoveTowardsPlayer();
 
-        // Vänd fienden mot spelaren baserat på deras position på skärmen
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(player.position);
+            // Kolla om spelaren är levande och om fienden är inom attackavståndet
+            if (Vector2.Distance(transform.position, player.position) <= attackDistance)
+            {
+                isWithinAttackRange = true; // Aktivera attackläge
+            }
+            else
+            {
+                isWithinAttackRange = false; // Inaktivera attackläge
+            }
 
-        if (screenPos.x < playerScreenPos.x)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            // Om fienden är inom attackavståndet och attackläget är aktiverat, aktivera attacken
+            if (!enemyAttack.isActiveAndEnabled && isWithinAttackRange)
+            {
+                enemyAttack.enabled = true;
+            }
+
+            // Vänd fienden mot spelaren baserat på deras position på skärmen
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+            Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(player.position);
+
+            if (screenPos.x < playerScreenPos.x)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
         }
         else
         {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            // Om fienden inte är synlig för kameran, inaktivera den
+            gameObject.SetActive(false);
         }
     }
 
@@ -68,5 +91,12 @@ public class Enemy : MonoBehaviour
             Vector2 retreatDirection = (enemyPosition - playerPosition).normalized;
             rb2D.velocity = retreatDirection * retreatSpeed;
         }
+    }
+
+    bool IsVisible()
+    {
+        // Kontrollera om fienden är synlig för kameran
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        return GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
     }
 }
