@@ -5,11 +5,14 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 1.0f;
     public float retreatSpeed = 0.2f;
     public float attackDistance = 5.0f; // Attackräckvidd
+    public float attackCooldown = 2.0f; // Attackhastighet
 
     private Rigidbody2D rb2D;
     private Transform player;
     private EnemyAttack enemyAttack;
     private bool isWithinAttackRange = false; // Kontrollerar om fienden är inom attackräckvidden
+    private bool isRetreating = false; // Kontrollerar om fienden drar sig tillbaka
+    private float timeSinceLastAttack = 0.0f; // Tid sedan senaste attack
 
     void Start()
     {
@@ -38,10 +41,11 @@ public class Enemy : MonoBehaviour
                 isWithinAttackRange = false; // Inaktivera attackläge
             }
 
-            // Om fienden är inom attackavståndet och attackläget är aktiverat, aktivera attacken
-            if (!enemyAttack.isActiveAndEnabled && isWithinAttackRange)
+            // Kolla om fienden är stilla och inom attackavståndet, och att det har gått tillräckligt med tid sedan senaste attacken
+            if (!isRetreating && isWithinAttackRange && rb2D.velocity.magnitude < 0.1f && Time.time - timeSinceLastAttack >= attackCooldown)
             {
-                enemyAttack.enabled = true;
+                enemyAttack.enabled = true; // Aktivera attacken
+                timeSinceLastAttack = Time.time; // Uppdatera tiden sedan senaste attacken
             }
 
             // Vänd fienden mot spelaren baserat på deras position på skärmen
@@ -79,17 +83,20 @@ public class Enemy : MonoBehaviour
             // Rör fienden mot spelaren med moveSpeed
             Vector2 moveDirection = (playerPosition - enemyPosition).normalized;
             rb2D.velocity = moveDirection * moveSpeed;
+            isRetreating = false; // Fienden rör sig inte bakåt
         }
         else if (distanceToPlayer < attackDistance && distanceToPlayer > attackDistance / 2)
         {
             // Sluta röra sig
             rb2D.velocity = Vector2.zero;
+            isRetreating = false; // Fienden rör sig inte bakåt
         }
         else
         {
             // Backa bort från spelaren med retreatSpeed
             Vector2 retreatDirection = (enemyPosition - playerPosition).normalized;
             rb2D.velocity = retreatDirection * retreatSpeed;
+            isRetreating = true; // Fienden drar sig tillbaka
         }
     }
 
@@ -98,5 +105,11 @@ public class Enemy : MonoBehaviour
         // Kontrollera om fienden är synlig för kameran
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
         return GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
+    }
+
+    public void KnightDied()
+    {
+        // Stoppar fiendens attacker när riddaren dör
+        enemyAttack.enabled = false;
     }
 }
