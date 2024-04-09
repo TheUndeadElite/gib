@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1384433449810866223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 0.58, z: 0}
+  m_LocalPosition: {x: 1.89, y: 0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -195,9 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce6daf041a837340a1bda04eb5ea246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  retreatSpeed: 3
-  attackDistance: 9
+  moveSpeed: 3
+  retreatSpeed: 6
+  attackDistance: 5
+  attackCooldown: 2
 --- !u!114 &6925905714618168273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+  coinPrefab: {fileID: 0}
+  spawnPosition: {fileID: 0}
 --- !u!114 &4657768713740280011
 MonoBehaviour:
   m_ObjectHideFlags: 0

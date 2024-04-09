@@ -1541,27 +1541,60 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost_0
       objectReference: {fileID: 0}
-    - target: {fileID: 2939048115566238766, guid: 20588abf6a553344889d5cc5f5bfaff7, type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2939048115566238766, guid: 20588abf6a553344889d5cc5f5bfaff7, type: 3}
-      propertyPath: retreatSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2939048115566238766, guid: 20588abf6a553344889d5cc5f5bfaff7, type: 3}
-      propertyPath: attackDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6135164430498229635, guid: 20588abf6a553344889d5cc5f5bfaff7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.89
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20588abf6a553344889d5cc5f5bfaff7, type: 3}
+--- !u!1 &836940371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836940373}
+  - component: {fileID: 836940372}
+  m_Layer: 0
+  m_Name: 'spawner '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &836940372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836940371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386c687bb12662a42b5b6879f2dd7be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnInterval: 1
+  spawnRadius: 1
+--- !u!4 &836940373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836940371}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.045307, y: -2.1937025, z: -0.18034355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1189498162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,3 +3115,4 @@ SceneRoots:
   - {fileID: 1740869491}
   - {fileID: 1816844864}
   - {fileID: 581048497}
+  - {fileID: 836940373}
