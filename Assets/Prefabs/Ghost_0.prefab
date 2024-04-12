@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  retreatSpeed: 6
-  attackDistance: 5
+  retreatSpeed: 7
+  attackDistance: 4
   attackCooldown: 2
 --- !u!114 &6925905714618168273
 MonoBehaviour:

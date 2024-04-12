@@ -100,12 +100,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    bool IsVisible()
-    {
-        // Kontrollera om fienden är synlig för kameran
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        return GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
-    }
+   
 
     public void KnightDied()
     {
