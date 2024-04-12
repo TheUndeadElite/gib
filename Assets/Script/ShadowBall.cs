@@ -31,14 +31,18 @@ public class ShadowBall : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Om Shadow Ball träffar ett objekt med HealthController, applicera skada
-        HealthController healthController = other.GetComponent<HealthController>();
-        if (healthController != null)
+        // Om det andra objektet har taggen "Player", applicera skada
+        if (other.CompareTag("Knight"))
         {
-            healthController.TakeDamage(damageAmount);
-        }
+            // Om Shadow Ball träffar ett objekt med HealthController, applicera skada
+            HealthController healthController = other.GetComponent<HealthController>();
+            if (healthController != null)
+            {
+                healthController.TakeDamage(damageAmount);
+            }
 
-        // Förstör Shadow Ball när den träffar ett annat objekt
-        Destroy(gameObject);
+            // Förstör Shadow Ball när den träffar spelaren
+            Destroy(gameObject);
+        }
     }
 }
