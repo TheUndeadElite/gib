@@ -8,6 +8,7 @@ public class SnokenController : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
+
     void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -15,7 +16,7 @@ public class SnokenController : MonoBehaviour
 
     void Update()
     {
-        relativePoint = transform.InverseTransformPoint(player.position);
+        relativePoint = transform.InverseTransformPoint(player.position);   
 
         if (relativePoint.x < 0f && Mathf.Abs(relativePoint.x) > Mathf.Abs(relativePoint.y))
         {
@@ -25,5 +26,6 @@ public class SnokenController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+
     }
 }

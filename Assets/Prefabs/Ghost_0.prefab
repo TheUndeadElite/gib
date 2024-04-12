@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2939048115566238766}
   - component: {fileID: 6925905714618168273}
   - component: {fileID: 4657768713740280011}
+  - component: {fileID: 7761169241069562300}
   m_Layer: 0
   m_Name: Ghost_0
   m_TagString: Untagged
@@ -196,8 +197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  retreatSpeed: 6
-  attackDistance: 5
+  retreatSpeed: 7
+  attackDistance: 10
+  retreatDistance: 3
   attackCooldown: 2
 --- !u!114 &6925905714618168273
 MonoBehaviour:
@@ -229,3 +231,38 @@ MonoBehaviour:
   shadowBallPrefab: {fileID: 7996693400097521675, guid: f1c8b34f124e0bc438bc675b119fa1b6, type: 3}
   attackPoint: {fileID: 6135164430498229635}
   cooldownTime: 2
+--- !u!70 &7761169241069562300
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219524212198748204}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.8, y: 2.95}
+  m_Direction: 0
