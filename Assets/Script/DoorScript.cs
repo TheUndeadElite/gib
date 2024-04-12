@@ -1,7 +1,7 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class DoorScript : MonoBehaviour
 {
@@ -11,8 +11,6 @@ public class DoorScript : MonoBehaviour
     public float timeBeforeNextScene;
     public SceneAsset targetScene;
     public bool playerIsAtTheDoor;
-
-    FadeInOut fade;
 
     private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
     private Vector3 originalPosition; // Store the original position of the door
@@ -44,8 +42,6 @@ public class DoorScript : MonoBehaviour
         {
             Debug.LogError("Closed Door Sprite not found. Make sure the sprite is in the 'Resources' folder and named 'Closeddoors'.");
         }
-
-        fade = FindObjectOfType<FadeInOut>();
     }
 
     void Update()
@@ -88,13 +84,6 @@ public class DoorScript : MonoBehaviour
         LoadScene(); // Load the specified scene
     }
 
-    public IEnumerator ChangeScene()
-    {
-        fade.StartFadeIn();
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(targetScene.name);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Knight"))
@@ -108,7 +97,6 @@ public class DoorScript : MonoBehaviour
         if (collision.CompareTag("Knight"))
         {
             playerIsAtTheDoor = false;
-            // StartCoroutine(ChangeScene());
         }
     }
 

@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
     public int MaxHealth = 3;
     public int CurrentHealth;
+
+    // Name of the death screen scene
+    public string deathScreenSceneName = "DeathScreen";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +27,9 @@ public class HealthController : MonoBehaviour
         }
     }
 
-
     void Die()
     {
-        // Implement death behavior (e.g., play death animation, deactivate GameObject, etc.)
-        gameObject.SetActive(false);
+        // Switch to the death screen scene
+        SceneManager.LoadScene(deathScreenSceneName);
     }
-
 }
