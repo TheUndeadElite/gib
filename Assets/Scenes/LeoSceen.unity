@@ -2337,7 +2337,7 @@ PrefabInstance:
     - target: {fileID: 2947917163544715034, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: attackPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1758507547}
     - target: {fileID: 2947917163544715034, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: attackRange
       value: 0.5
@@ -2386,9 +2386,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8211121580198546617, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+    - target: {fileID: 4643477366059748531, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051938976538135141, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211121580198546617, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
