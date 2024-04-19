@@ -6,6 +6,7 @@ public class DamageTaker : MonoBehaviour
 {
     public GameObject player;
 
+    public float AttackRange = 2.0f;
     public int MaxHealth = 3;
     public int currentHealth;
 
@@ -33,9 +34,21 @@ public class DamageTaker : MonoBehaviour
             }
             else
             {
-                scale.x = Mathf.Abs(scale.x);
+                scale.x = -Mathf.Abs(scale.x);
             }
+            if(AttackRange > (player.transform.position - transform.position).magnitude)
+            {
+                //if (!snokenAnimator.GetBool("isAttacking"))
+                //{
+                    snokenAnimator.SetBool("isAttacking", true);
 
+
+                //}
+            }
+            else
+            {
+                snokenAnimator.SetBool("isAttacking", false);
+            }
         }
     }
 
@@ -53,16 +66,14 @@ public class DamageTaker : MonoBehaviour
 
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
+
         HealthController healthComponent = collision.gameObject.GetComponent<HealthController>();
 
-        if (healthComponent != null )
+        if (healthComponent != null)
         {
-  
-            
             healthComponent.TakeDamage(damageAmount);
-            snokenAnimator.SetBool("isAttacking", true);
+            Debug.Log("Player Damaged " + damageAmount);
         }
-
     }
 
     private void OnCollisionExit2D(UnityEngine.Collision2D collision)
@@ -71,9 +82,7 @@ public class DamageTaker : MonoBehaviour
 
         if (healthComponent != null)
         {
-          
-         
-            snokenAnimator.SetBool("isAttacking", false);
+
         }
 
     }

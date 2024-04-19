@@ -51,7 +51,17 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
 
     }
-
+    IEnumerator AttackHitboxTrigger()
+    {
+        yield return new WaitForSeconds(0.553f);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        //Skada
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<DamageTaker>().TakeDamage(1);
+        }
+        yield return null;
+    }
     void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0))
@@ -63,13 +73,8 @@ public class PlayerController : MonoBehaviour
         {
             //Animation
             characterAnimator.SetTrigger("isAttacking");
+            StartCoroutine(AttackHitboxTrigger());
             //Hitta enemies som finns i rangen
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            //Skada
-            foreach(Collider2D enemy in hitEnemies)
-            {
-                Debug.Log("We hit enemy");
-            }
         }
 
         void OnDrawGizmos()
