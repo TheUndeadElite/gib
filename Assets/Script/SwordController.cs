@@ -43,6 +43,6 @@ public class SwordController : MonoBehaviour
         {
             isDamage = false;
         }
-        Debug.Log(isDamage);
+        //Debug.Log(isDamage);
     }
 }

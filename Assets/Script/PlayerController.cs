@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] bool isDashing = false;
 
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    
+    
+
     float speedAtStart;
 
     Animator characterAnimator;
@@ -48,9 +54,44 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-         //Debug.Log("rotating");
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            Attack();
+        }
 
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        void Attack()
+        {
+            //Animation
+            characterAnimator.SetTrigger("isAttacking");
+            //Hitta enemies som finns i rangen
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            //Skada
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("Collision work");
+            }
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            if (attackPoint = null);
+            return;
+
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
+        
+            
+        
+        
+
+        
+     
+
+       
+
+
+
+            horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
 
