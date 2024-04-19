@@ -9,6 +9,8 @@ public class SnokenController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
 
+
+
     void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();

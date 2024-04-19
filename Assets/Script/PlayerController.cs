@@ -68,16 +68,18 @@ public class PlayerController : MonoBehaviour
             //Skada
             foreach(Collider2D enemy in hitEnemies)
             {
-                Debug.Log("Collision work");
+                Debug.Log("We hit enemy");
             }
         }
 
-        void OnDrawGizmosSelected()
+        void OnDrawGizmos()
         {
-            if (attackPoint = null);
-            return;
-
+            if (attackPoint = null)
+            {
+                return;
+            }
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
         }
         
             
