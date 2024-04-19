@@ -19,16 +19,20 @@ public class FlyingEnemy : MonoBehaviour
         if (Player == null)
             return;
         if (chase == null)
-        Chase();
+            Chase();
         else
-
+        ReturnStartPoint();
         Flip();
     }
     private void Chase()
     {
         transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime); 
     }
-    private void 
+    private void ReturnStartPoint()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, startingPoint.position, speed * Time.deltaTime);
+    }
+    
     private void Flip()
     {
         if (transform.position.x > Player.transform.position.x)
