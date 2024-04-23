@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,11 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float sprintSpeed = 12.0f;
 
     [SerializeField] bool isDashing = false;
+    private bool canDash;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    
+    private bool canAttack;
+    [SerializeField] bool isAttacking = false;
     
 
     float speedAtStart;
@@ -37,14 +40,18 @@ public class PlayerController : MonoBehaviour
 
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
-    
+    [SerializeField] Gamemanager s_gameManager;
      
     private void Awake()
     {
+        s_gameManager = FindAnyObjectByType<Gamemanager>();
+
         myRigidbody = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponentInChildren<Animator>();
 
         speedAtStart = speed;
+        canDash = true;
+        canAttack = true;
     }
     private void Start()
     {
@@ -86,19 +93,10 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 
         }
-        
-            
-        
-        
-
-        
-     
-
-       
 
 
 
-            horizontalInput = Input.GetAxisRaw("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
 
@@ -129,17 +127,20 @@ public class PlayerController : MonoBehaviour
 
         
 
-        if (horizontalInput > 0)
-        {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        if (horizontalInput < 0)
-        {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
-        }
         
 
+        if (!is_gameManager.gameIsPaused)
+        {
+            if (horizontalInput > 0)
+            {
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            if (horizontalInput < 0)
+            {
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
       
         //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
@@ -153,7 +154,7 @@ public class PlayerController : MonoBehaviour
         
         //dashing
 
-        if ((Input.GetKeyDown(KeyCode.LeftControl)|| Input.GetKeyDown(KeyCode.Mouse1)) && !isDashing)
+        if ((Input.GetKeyDown(KeyCode.LeftControl) && !isDashing && canDash))
         {
             StartCoroutine(Dash());
         }
@@ -161,9 +162,19 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Dash()
     {
+        canDash = false;
+      
         isDashing = true;
         yield return new WaitForSeconds(0.15f);
         isDashing = false;
+
+        yield return new WaitForSeconds(2);
+        canDash = true;
+    }
+
+    IEnumerator Attack()
+    {
+        yield return null;
     }
 
     void OnTriggerEnter2D(Collider2D other)
