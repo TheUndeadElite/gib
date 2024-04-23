@@ -70,6 +70,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (s_gameManager.gameIsPaused)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.Mouse0))
         {
             Attack();
