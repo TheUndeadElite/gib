@@ -71,32 +71,41 @@ public class PlayerController : MonoBehaviour
         {
             enemy.GetComponent<DamageTaker>().TakeDamage(1);
         }
+        yield return new WaitForSeconds(0.5f);
+        isAttacking = false;
+       
         yield return null;
     }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint = null)
+        
+        return;
+        
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+    }
+    void Attack()
+    {
+        //Animation
+        isAttacking = true;
+        characterAnimator.SetTrigger("isAttacking");
+        StartCoroutine(AttackHitboxTrigger());
+        //Hitta enemies som finns i rangen
+    }
+  
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+
+        if (Input.GetKey(KeyCode.Mouse0) && isAttacking != true )
         {
             Attack();
         }
+        
 
-        void Attack()
-        {
-            //Animation
-            characterAnimator.SetTrigger("isAttacking");
-            StartCoroutine(AttackHitboxTrigger());
-            //Hitta enemies som finns i rangen
-        }
+        
 
-        void OnDrawGizmos()
-        {
-            if (attackPoint = null)
-            {
-                return;
-            }
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-
-        }
 
 
 
@@ -133,7 +142,7 @@ public class PlayerController : MonoBehaviour
 
         
 
-        if (!is_gameManager.gameIsPaused)
+        if (!s_gameManager.gameIsPaused)
         {
             if (horizontalInput > 0)
             {
@@ -176,8 +185,9 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
-    IEnumerator Attack()
+    IEnumerator AttackRoutine()
     {
+
         yield return null;
     }
 
