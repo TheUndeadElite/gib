@@ -37,10 +37,16 @@ public class PlayerController : MonoBehaviour
 
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
-    
-     
+
+    //We need to know if the game is paused or not.
+
+    [SerializeField] Gamemanager s_gameManager;
+
+
     private void Awake()
     {
+        s_gameManager = FindAnyObjectByType<Gamemanager>();
+
         myRigidbody = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponentInChildren<Animator>();
 
@@ -128,16 +134,20 @@ public class PlayerController : MonoBehaviour
         }
 
         
-
-        if (horizontalInput > 0)
+        if(!s_gameManager.gameIsPaused)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
+
+            if (horizontalInput > 0)
+            {
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            if (horizontalInput < 0)
+            {
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
 
-        if (horizontalInput < 0)
-        {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
-        }
         
 
       
