@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,11 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float sprintSpeed = 12.0f;
 
     [SerializeField] bool isDashing = false;
+    private bool canDash;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    
+    private bool canAttack;
+    [SerializeField] bool isAttacking = false;
     
 
     float speedAtStart;
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
         characterAnimator = GetComponentInChildren<Animator>();
 
         speedAtStart = speed;
+        canDash = true;
+        canAttack = true;
     }
     private void Start()
     {
@@ -66,45 +71,45 @@ public class PlayerController : MonoBehaviour
         {
             enemy.GetComponent<DamageTaker>().TakeDamage(1);
         }
+        yield return new WaitForSeconds(0.5f);
+        isAttacking = false;
+       
         yield return null;
     }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint = null)
+        
+        return;
+        
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+    }
+    void Attack()
+    {
+        //Animation
+        isAttacking = true;
+        characterAnimator.SetTrigger("isAttacking");
+        StartCoroutine(AttackHitboxTrigger());
+        //Hitta enemies som finns i rangen
+    }
+  
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+
+        if (Input.GetKey(KeyCode.Mouse0) && isAttacking != true )
         {
             Attack();
         }
-
-        void Attack()
-        {
-            //Animation
-            characterAnimator.SetTrigger("isAttacking");
-            StartCoroutine(AttackHitboxTrigger());
-            //Hitta enemies som finns i rangen
-        }
-
-        void OnDrawGizmos()
-        {
-            if (attackPoint = null)
-            {
-                return;
-            }
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-
-        }
-        
-            
-        
         
 
         
-     
-
-       
 
 
 
-            horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
 
@@ -134,9 +139,11 @@ public class PlayerController : MonoBehaviour
         }
 
         
-        if(!s_gameManager.gameIsPaused)
-        {
 
+        
+
+        if (!s_gameManager.gameIsPaused)
+        {
             if (horizontalInput > 0)
             {
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
@@ -147,9 +154,6 @@ public class PlayerController : MonoBehaviour
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
             }
         }
-
-        
-
       
         //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
@@ -163,7 +167,7 @@ public class PlayerController : MonoBehaviour
         
         //dashing
 
-        if ((Input.GetKeyDown(KeyCode.LeftControl)|| Input.GetKeyDown(KeyCode.Mouse1)) && !isDashing)
+        if ((Input.GetKeyDown(KeyCode.LeftControl) && !isDashing && canDash))
         {
             StartCoroutine(Dash());
         }
@@ -171,9 +175,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Dash()
     {
+        canDash = false;
+      
         isDashing = true;
         yield return new WaitForSeconds(0.15f);
         isDashing = false;
+
+        yield return new WaitForSeconds(2);
+        canDash = true;
+    }
+
+    IEnumerator AttackRoutine()
+    {
+
+        yield return null;
     }
 
     void OnTriggerEnter2D(Collider2D other)
