@@ -40,8 +40,12 @@ public class PlayerController : MonoBehaviour
 
     private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
 
+
+    //We need to know if the game is paused or not.
+
     [SerializeField] Gamemanager s_gameManager;
-     
+
+
     private void Awake()
     {
         s_gameManager = FindAnyObjectByType<Gamemanager>();
