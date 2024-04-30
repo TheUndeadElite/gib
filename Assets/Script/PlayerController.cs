@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayers;
     private bool canAttack;
     [SerializeField] bool isAttacking = false;
-    
+
 
     float speedAtStart;
 
     Animator characterAnimator;
-    
+
 
     Rigidbody2D myRigidbody;
     float horizontalInput;
@@ -73,16 +73,23 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
-       
+        
         yield return null;
     }
+
+    IEnumerator AttackRoutine()
+    {
+
+        yield return null;
+    }
+
 
     void OnDrawGizmosSelected()
     {
         if (attackPoint = null)
-        
-        return;
-        
+
+            return;
+
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 
     }
@@ -94,17 +101,17 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackHitboxTrigger());
         //Hitta enemies som finns i rangen
     }
-  
+
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Mouse0) && isAttacking != true )
+        if (Input.GetKey(KeyCode.Mouse0) && isAttacking != true)
         {
             Attack();
         }
-        
 
-        
+
+
 
 
 
@@ -112,16 +119,24 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (horizontalInput > 0)
-        {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-            Debug.Log("walking right");
-        }
 
-        if (horizontalInput < 0)
+
+        if (!s_gameManager.gameIsPaused)
         {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            Debug.Log("walking lefg");
+
+
+            if (horizontalInput > 0)
+            {
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+
+            }
+
+            if (horizontalInput < 0)
+            {
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+
+            }
+
         }
 
 
@@ -130,12 +145,14 @@ public class PlayerController : MonoBehaviour
             if (gameObject.transform.localScale.x == 1)
             {
                 myRigidbody.velocity = transform.right * 20;
-            }   else
+            }
+            else
             {
                 myRigidbody.velocity = -transform.right * 20;
             }
-            
-        }   else
+
+        }
+        else
         {
             if (horizontalInput == 0)
             {
@@ -150,15 +167,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        
 
-        
 
-        if (!s_gameManager.gameIsPaused)
-        {
 
-        }
-      
+
+
+
         //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -168,7 +182,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = speedAtStart;
         }
-        
+
         //dashing
 
         if ((Input.GetKeyDown(KeyCode.LeftControl) && !isDashing && canDash))
@@ -180,19 +194,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator Dash()
     {
         canDash = false;
-      
+
         isDashing = true;
         yield return new WaitForSeconds(0.15f);
         isDashing = false;
 
         yield return new WaitForSeconds(2);
         canDash = true;
-    }
-
-    IEnumerator AttackRoutine()
-    {
-
-        yield return null;
     }
 
     void OnTriggerEnter2D(Collider2D other)
