@@ -11,6 +11,9 @@ public class Gamemanager : MonoBehaviour
     GameObject Pausemenu;
     [SerializeField]
     GameObject Resumebutton;
+    
+
+    [SerializeField] GameObject settingsBox;
     void Start()
     {
         
@@ -50,5 +53,23 @@ public class Gamemanager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quitting game");
+    }
+
+    public void Setting()
+    {
+        if(settingsBox.activeSelf)
+        {
+            settingsBox.SetActive(false);
+        }   else
+        {
+            settingsBox.SetActive(true);
+        }
+       
+    }
+    public enum AudioMixMode
+    {
+        LinearAudioSourceVolume,
+        LinearMixerVolume,
+        LogrithmicMixerVolume
     }
 }
