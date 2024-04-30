@@ -2353,7 +2353,7 @@ PrefabInstance:
       objectReference: {fileID: 346655707}
     - target: {fileID: 998627912288322003, guid: bccf983ac6cdef140b5309fbed8b3eb9, type: 3}
       propertyPath: AttackRange
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 998627912288322003, guid: bccf983ac6cdef140b5309fbed8b3eb9, type: 3}
       propertyPath: snokenAnimator

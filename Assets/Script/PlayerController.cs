@@ -112,8 +112,20 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        if (horizontalInput > 0)
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            Debug.Log("walking right");
+        }
 
-        if(isDashing)
+        if (horizontalInput < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            Debug.Log("walking lefg");
+        }
+
+
+        if (isDashing)
         {
             if (gameObject.transform.localScale.x == 1)
             {
@@ -144,15 +156,7 @@ public class PlayerController : MonoBehaviour
 
         if (!s_gameManager.gameIsPaused)
         {
-            if (horizontalInput > 0)
-            {
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
-            }
 
-            if (horizontalInput < 0)
-            {
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            }
         }
       
         //Sprint
