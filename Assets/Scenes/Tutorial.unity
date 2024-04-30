@@ -3801,6 +3801,11 @@ MonoBehaviour:
   gameIsPaused: 0
   Pausemenu: {fileID: 519831629}
   Resumebutton: {fileID: 98404161}
+  settingsBox: {fileID: 0}
+  Mixer: {fileID: 0}
+  AudioSource: {fileID: 0}
+  ValueText: {fileID: 0}
+  MixMode: 0
 --- !u!4 &1020491138
 Transform:
   m_ObjectHideFlags: 0
