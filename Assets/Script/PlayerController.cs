@@ -195,6 +195,8 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         canDash = true;
+        //On click: 
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
