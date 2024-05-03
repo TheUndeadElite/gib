@@ -106,10 +106,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  AttackRange: 2
   MaxHealth: 3
   currentHealth: 3
   snokenAnimator: {fileID: 6510551931452888376}
   damageAmount: 1
+  loot: {fileID: 417110077582921556, guid: 680b0402a6961c043a548e34483f1882, type: 3}
+  ChanceToDrop: 0.5
 --- !u!1 &6366175329341066531
 GameObject:
   m_ObjectHideFlags: 0

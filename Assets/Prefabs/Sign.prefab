@@ -146,6 +146,15 @@ MonoBehaviour:
   dialogBox: {fileID: 0}
   dialogText: {fileID: 0}
   dialogues:
-  - 
-  - 
+  - Hello and welcome to  The Cursed Hero and to the tutorial!
+  - Firstly you already know how to walk (wasd) and to jump is space (obviously)
+  - 'On your journey you''ll surely come across dangerous monsters. '
+  - 'To defeat them you have a sword to your disposal. '
+  - 'To swing your sword press M1 and if you keep pressing it repeatably you''ll
+    do a combo! '
+  - 'Those boxes at the bottom of the screen? Well those are for your moves that
+    you unlock through playing the game! '
+  - 'For now you''ll get them for free in  this demo. '
+  - 'Go through the door when you are done playing around (you child). '
+  - '- Grupp 12'
   PlayerInRange: 0
