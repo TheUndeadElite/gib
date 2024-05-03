@@ -1,79 +1,100 @@
-using UnityEditor.Rendering;
 using UnityEngine;
 
-public class EnemyPostrolling : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public float speed = 5f;
-    public GameObject pointA;
-    public GameObject pointB;
-    private Rigidbody2D rb;
-    private Transform currentPoint;
-    private float stopTime;
-    private float stopTimer;
-    private float nextRandomX;
+    public float moveSpeed = 1.0f;
+    public float retreatSpeed = 0.2f;
+    public float attackDistance = 5.0f; // Attackräckvidd
+    public float retreatDistance = 1.25f; // Fjärdedel av attackavståndet för reträt
+    public float attackCooldown = 2.0f; // Attackhastighet
+
+    private Rigidbody2D rb2D;
+    private Transform player;
+    private EnemyAttack enemyAttack;
+    private bool isWithinAttackRange = false; // Kontrollerar om fienden är inom attackräckvidden
+    private bool isRetreating = false; // Kontrollerar om fienden drar sig tillbaka
+    private float timeSinceLastAttack = 0.0f; // Tid sedan senaste attack
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        currentPoint = pointB.transform;
+        rb2D = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Knight").transform;
+        enemyAttack = GetComponent<EnemyAttack>();
 
-        ChooseNextRandomX();
+        // Aktivera fienden vid start
+        gameObject.SetActive(true);
     }
 
     void Update()
     {
-        MoveEnemy();
-    }
+        MoveTowardsPlayer();
 
-    void MoveEnemy()
-    {
-        Vector2 direction = (currentPoint.position - transform.position).normalized;
-
-        // Check if it's time to stop
-        if (stopTimer > 0)
+        // Kolla om spelaren är levande och om fienden är inom attackavståndet
+        if (Vector2.Distance(transform.position, player.position) <= attackDistance)
         {
-            stopTimer -= Time.deltaTime;
-            rb.velocity = Vector2.zero;
+            isWithinAttackRange = true; // Aktivera attackläge
         }
         else
         {
-            rb.velocity = direction * speed;
+            isWithinAttackRange = false; // Inaktivera attackläge
+        }
 
-            // Check if arrived at the current point
-            if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
-            {
-               
+        // Kolla om fienden är stilla och inom attackavståndet, och att det har gått tillräckligt med tid sedan senaste attacken
+        if (!isRetreating && isWithinAttackRange && rb2D.velocity.magnitude < 0.1f && Time.time - timeSinceLastAttack >= attackCooldown)
+        {
+            enemyAttack.enabled = true; // Aktivera attacken
+            timeSinceLastAttack = Time.time; // Uppdatera tiden sedan senaste attacken
+        }
 
-                // Choose a new random X position
-                ChooseNextRandomX();
+        // Vänd fienden mot spelaren baserat på deras position på skärmen
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(player.position);
 
-                // Switch to the other point with the new X position
-                if (currentPoint == pointA.transform)
-                {
-                    currentPoint = new GameObject().transform; // Dummy GameObject for a new position
-                }
-                else
-                {
-                    currentPoint = new GameObject().transform; // Dummy GameObject for a new position
-                    currentPoint.position = new Vector2(nextRandomX, transform.position.y);
-                }
-                // Start the stop timer for 2 seconds
-                stopTimer = 2f;
-            }
+        if (screenPos.x < playerScreenPos.x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
 
-    
-
-    void ChooseNextRandomX()
+    void MoveTowardsPlayer()
     {
-        nextRandomX = Random.Range(pointA.transform.position.x, pointB.transform.position.x);
+        if (player == null)
+            return;
+
+        Vector2 enemyPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 playerPosition = new Vector2(player.position.x, player.position.y);
+
+        float distanceToPlayer = Vector2.Distance(enemyPosition, playerPosition);
+
+        if (distanceToPlayer > attackDistance * 0.75f) // När spelaren är utanför tre fjärdedelar av attackavståndet
+        {
+            // Rör fienden mot spelaren med moveSpeed
+            Vector2 moveDirection = (playerPosition - enemyPosition).normalized;
+            rb2D.velocity = moveDirection * moveSpeed;
+            isRetreating = false; // Fienden rör sig inte bakåt
+        }
+        else if (distanceToPlayer < attackDistance * 0.25f) // När spelaren är inom en fjärdedel av attackavståndet
+        {
+            // Backa bort från spelaren med retreatSpeed
+            Vector2 retreatDirection = (enemyPosition - playerPosition).normalized;
+            rb2D.velocity = retreatDirection * retreatSpeed;
+            isRetreating = true; // Fienden drar sig tillbaka
+        }
+        else // När spelaren är inom tre fjärdedelar men utanför en fjärdedel av attackavståndet
+        {
+            // Sluta röra sig
+            rb2D.velocity = Vector2.zero;
+            isRetreating = false; // Fienden rör sig inte bakåt
+        }
     }
 
-    private void OnDrawGizmos()
+    public void KnightDied()
     {
-        Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
-        Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
+        // Stoppar fiendens attacker när riddaren dör
+        enemyAttack.enabled = false;
     }
 }
