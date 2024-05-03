@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 589349935097145186}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -0.82, z: -0.089005485}
+  m_LocalPosition: {x: -0.11, y: -0.53, z: -0.089005485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355c2913ab254c243a57717da8db05a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 19
+  JumpPower: 18
 --- !u!114 &2947917163544715034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757272386087285134}
   - component: {fileID: 6336362145240769733}
-  - component: {fileID: 4925514591964959440}
+  - component: {fileID: 8587146236240552637}
   m_Layer: 0
   m_Name: playerGfx
   m_TagString: Untagged
@@ -287,7 +287,7 @@ Transform:
   m_GameObject: {fileID: 7414182775561202712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1658, y: -0.61, z: 0}
+  m_LocalPosition: {x: -0.121, y: -0.627, z: 0}
   m_LocalScale: {x: 3.0895245, y: 3.017998, z: 3.017998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -345,7 +345,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4925514591964959440
+--- !u!95 &8587146236240552637
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
