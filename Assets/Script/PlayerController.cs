@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackHitboxTrigger());
         //Hitta enemies som finns i rangen
     }
-
+  
     void Update()
     {
 
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        
+
         if (horizontalInput > 0)
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
