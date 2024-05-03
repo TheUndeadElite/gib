@@ -55,6 +55,7 @@ public class DamageTaker : MonoBehaviour
         }
     }
 
+   
 
     public void TakeDamage(int amount)
     {

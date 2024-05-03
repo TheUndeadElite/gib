@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint = null)
+        if(attackPoint == null)
 
             return;
 

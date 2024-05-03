@@ -25,7 +25,11 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     void Start()
     {
-        volumeSlider.value = 100;
+        if(volumeSlider != null)
+        {
+            volumeSlider.value = 50;
+
+        }
     }
 
     // Update is called once per frame
