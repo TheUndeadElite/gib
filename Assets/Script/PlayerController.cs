@@ -121,24 +121,18 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (!s_gameManager.gameIsPaused)
+        
+        if (horizontalInput > 0)
         {
-
-
-            if (horizontalInput > 0)
-            {
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
-
-            }
-
-            if (horizontalInput < 0)
-            {
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
-
-            }
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
 
         }
 
+        if (horizontalInput < 0)
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+
+        }
 
         if (isDashing)
         {

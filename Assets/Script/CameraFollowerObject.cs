@@ -20,7 +20,7 @@ public class CameraFollowerObject : MonoBehaviour
     {
         _Player = _PlayerTransform.gameObject.GetComponent<PlayerController>();
 
-        _isFacingRight = _Player.IsFacingRight;
+        //_isFacingRight = _Player.IsFacingRight;
 
     }
 
