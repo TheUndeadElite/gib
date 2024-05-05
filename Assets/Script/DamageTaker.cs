@@ -16,6 +16,9 @@ public class DamageTaker : MonoBehaviour
 
     private object collision;
 
+    public GameObject loot = null;
+    public float ChanceToDrop = 0.5f;
+
     void Start()
     {
         currentHealth = MaxHealth;
@@ -52,6 +55,7 @@ public class DamageTaker : MonoBehaviour
         }
     }
 
+   
 
     public void TakeDamage(int amount)
     {
@@ -96,6 +100,10 @@ public class DamageTaker : MonoBehaviour
 
     void Die()
     {
+        if (Random.Range(0.0f, 1.0f) > ChanceToDrop && loot != null)
+        {
+            GameObject.Instantiate(loot,transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 

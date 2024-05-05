@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathScreen.unity
     guid: 614fc3cfb64266f4e917d30fca88ebb0
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/Levels/Tutorial.unity
     guid: 7ae23b88077fde941953867d99b136f8
   - enabled: 1
     path: Assets/Scenes/Testingground.unity
