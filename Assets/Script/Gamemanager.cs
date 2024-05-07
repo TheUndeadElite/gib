@@ -4,43 +4,47 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Gamemanager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool gameIsPaused;
+    public float audioVolume = 50f;
 
-    [SerializeField]
-    GameObject Pausemenu;
-    [SerializeField]
-    GameObject Resumebutton;
-    
-
+    [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject settingsBox;
-    [SerializeField] private AudioMixer Mixer;
-    [SerializeField] private AudioSource AudioSource;
-    [SerializeField] private TextMeshProUGUI ValueText;
-    [SerializeField] private AudioMixMode MixMode;
-
+    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private TextMeshProUGUI valueText;
+    [SerializeField] private AudioMixMode mixMode;
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] TMP_Text debugText;
+
     void Start()
     {
-        if(volumeSlider != null)
+        audioVolume = PlayerPrefs.GetFloat("audioVolume");
+        if (volumeSlider != null)
         {
-            volumeSlider.value = 50;
-
+            volumeSlider.value = audioVolume;
+            PlayerPrefs.SetFloat("audioVolume", audioVolume);
+            OnChangeSlider(audioVolume);
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             Pause();
-
-
         }
+    }
+
+    public void MainMenuscene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Pause()
@@ -49,17 +53,25 @@ public class Gamemanager : MonoBehaviour
         {
             gameIsPaused = true;
             Debug.Log("Game pause!");
-            Pausemenu.SetActive(true);
+            pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
             gameIsPaused = false;
             Debug.Log("Game UNpause!");
-          
-            Pausemenu.SetActive(false);
+
+            pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
+    }
+
+    public void GetVolumeFromSlider()
+    {
+        audioVolume = volumeSlider.value;
+        PlayerPrefs.SetFloat("audioVolume", audioVolume);
+
+        OnChangeSlider(volumeSlider.value);
     }
 
     public void QuitGame()
@@ -70,49 +82,52 @@ public class Gamemanager : MonoBehaviour
 
     public void Setting()
     {
-        if(settingsBox.activeSelf)
+        if (settingsBox.activeSelf)
         {
             settingsBox.SetActive(false);
-        }   else
+        }
+        else
         {
             settingsBox.SetActive(true);
         }
-       
+
     }
+
     public enum AudioMixMode
     {
         LinearAudioSourceVolume,
         LinearMixerVolume,
-        LogrithmicMixerVolume
+        LogarithmicMixerVolume
     }
-    public void OnChangeSlider(float Value)
-    {
-        ValueText.SetText($"{Value.ToString("N4")}");
 
-        switch (MixMode)
+    public void OnChangeSlider(float value)
+    {
+        valueText.SetText($"{value.ToString("N4")}");
+
+        switch (mixMode)
         {
             case AudioMixMode.LinearAudioSourceVolume:
                 // Convert the slider value from 0-100 range to 0-1 range
-                float linearVolume = Value / 100f;
-                AudioSource.volume = linearVolume;
+                float linearVolume = value / 100f;
+                audioSource.volume = linearVolume;
                 break;
             case AudioMixMode.LinearMixerVolume:
                 // Convert the slider value from 0-100 range to -80-20 range
-                float mixerVolumeLinear = -80 + Value;
-                Mixer.SetFloat("Volume", mixerVolumeLinear);
+                float mixerVolumeLinear = -80 + value;
+                mixer.SetFloat("Volume", mixerVolumeLinear);
                 break;
-            case AudioMixMode.LogrithmicMixerVolume:
+            case AudioMixMode.LogarithmicMixerVolume:
                 // Convert the slider value from 0-100 range to -80-20 range
-                float mixerVolumeLog = Mathf.Log10(Value / 100f) * 20;
-                Mixer.SetFloat("Volume", mixerVolumeLog);
+                float mixerVolumeLog = Mathf.Log10(value / 100f) * 20;
+                mixer.SetFloat("Volume", mixerVolumeLog);
                 break;
         }
 
-        // Find the audio source component in the canvas
+        // Find the audio source component in the scene
         AudioSource canvasAudioSource = FindObjectOfType<AudioSource>();
 
         // Mute the audio source if the slider value is close to 0
-        if (Mathf.Approximately(Value, 0f) && MixMode == AudioMixMode.LinearAudioSourceVolume && canvasAudioSource != null)
+        if (Mathf.Approximately(value, 0f) && mixMode == AudioMixMode.LinearAudioSourceVolume && canvasAudioSource != null)
         {
             canvasAudioSource.mute = true;
         }
@@ -122,7 +137,4 @@ public class Gamemanager : MonoBehaviour
             canvasAudioSource.mute = false;
         }
     }
-
-
-
 }

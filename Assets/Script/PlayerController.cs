@@ -43,12 +43,12 @@ public class PlayerController : MonoBehaviour
 
     //We need to know if the game is paused or not.
 
-    [SerializeField] Gamemanager s_gameManager;
+    [SerializeField] GameManager s_gameManager;
 
 
     private void Awake()
     {
-        s_gameManager = FindAnyObjectByType<Gamemanager>();
+        s_gameManager = FindObjectOfType<GameManager>();
 
         myRigidbody = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponentInChildren<Animator>();
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
-        
+
         yield return null;
     }
 
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if(attackPoint == null)
+        if (attackPoint == null)
 
             return;
 
@@ -101,25 +101,21 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackHitboxTrigger());
         //Hitta enemies som finns i rangen
     }
-  
+
     void Update()
     {
+        if (s_gameManager.gameIsPaused)
+        {
+            return;
+        }
 
         if (Input.GetKey(KeyCode.Mouse0) && isAttacking != true)
         {
             Attack();
         }
 
-
-
-
-
-
-
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-
-
 
 
         if (horizontalInput > 0)
