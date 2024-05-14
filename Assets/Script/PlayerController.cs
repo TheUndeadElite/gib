@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] float speed = 8.0f;
     [SerializeField] float sprintSpeed = 12.0f;
 
@@ -53,10 +52,16 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponentInChildren<Animator>();
 
+        if (characterAnimator == null)
+        {
+            Debug.LogError("Character Animator is not assigned correctly!");
+        }
+
         speedAtStart = speed;
         canDash = true;
         canAttack = true;
     }
+
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -102,7 +107,7 @@ public class PlayerController : MonoBehaviour
         //Hitta enemies som finns i rangen
     }
 
-    void Update()
+    private void Update()
     {
         if (s_gameManager.gameIsPaused)
         {
@@ -117,19 +122,16 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-
         if (horizontalInput > 0)
         {
             gameObject.transform.localScale = new Vector3(1, 1, 1);
-
         }
-
-        if (horizontalInput < 0)
+        else if (horizontalInput < 0)
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
-
         }
 
+        // Lägg till nullkontroll för att undvika NullReferenceException
         if (isDashing)
         {
             if (gameObject.transform.localScale.x == 1)
@@ -140,7 +142,6 @@ public class PlayerController : MonoBehaviour
             {
                 myRigidbody.velocity = -transform.right * 20;
             }
-
         }
         else
         {
@@ -153,9 +154,12 @@ public class PlayerController : MonoBehaviour
             {
                 myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
                 characterAnimator.SetBool("isWalking", true);
-
             }
         }
+
+     
+    
+
 
 
 
@@ -214,6 +218,15 @@ public class PlayerController : MonoBehaviour
                 {
                     Debug.LogError("Failed to load exclamation mark prefab.");
                 }
+            }
+        }
+        else if (other.CompareTag("EnemySpawnTrigger"))
+        {
+            // Kalla på fiendespawnerens spawnmetod när spelaren kommer i kontakt med fiendespawnerens kolliderare
+            EnemySpawner enemySpawner = other.GetComponent<EnemySpawner>();
+            if (enemySpawner != null)
+            {
+                enemySpawner.SpawnEnemy();
             }
         }
     }

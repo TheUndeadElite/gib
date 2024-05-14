@@ -48,3 +48,6 @@ MonoBehaviour:
   - {fileID: 2219524212198748204, guid: 20588abf6a553344889d5cc5f5bfaff7, type: 3}
   spawnRadius: 0
   numberOfEnemiesToSpawn: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
