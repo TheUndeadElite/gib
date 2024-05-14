@@ -157,12 +157,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
-
-
-
-
-
         //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
         {

@@ -183,7 +183,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1695810976589076450}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d04ff9c6d3cf28245af4a95ba04b6351, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   speed: 8
   sprintSpeed: 12
   isDashing: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 7177396192687436982}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2

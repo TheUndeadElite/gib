@@ -15,6 +15,8 @@ public class Sign : MonoBehaviour
 
     private Coroutine typeCoroutine; // Coroutine reference for typing effect
 
+    bool hasReadSign = false;
+
     void Start()
     {
         // Check if dialogues array is empty
@@ -30,6 +32,8 @@ public class Sign : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && PlayerInRange)
         {
+            hasReadSign = true;
+
             Debug.Log(dialogActive);
 
             if (dialogActive)
@@ -88,5 +92,10 @@ public class Sign : MonoBehaviour
         {
             PlayerInRange = false;
         }
+    }
+
+    public bool GetHasReadSign()
+    {
+        return hasReadSign;
     }
 }
