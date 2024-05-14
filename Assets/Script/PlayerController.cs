@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        // Lägg till nullkontroll för att undvika NullReferenceException
+        // Lï¿½gg till nullkontroll fï¿½r att undvika NullReferenceException
         if (isDashing)
         {
             if (gameObject.transform.localScale.x == 1)
@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("EnemySpawnTrigger"))
         {
-            // Kalla på fiendespawnerens spawnmetod när spelaren kommer i kontakt med fiendespawnerens kolliderare
+            // Kalla pï¿½ fiendespawnerens spawnmetod nï¿½r spelaren kommer i kontakt med fiendespawnerens kolliderare
             EnemySpawner enemySpawner = other.GetComponent<EnemySpawner>();
             if (enemySpawner != null)
             {

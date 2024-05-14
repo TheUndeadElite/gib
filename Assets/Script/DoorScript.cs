@@ -15,8 +15,12 @@ public class DoorScript : MonoBehaviour
     private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
     private Vector3 originalPosition; // Store the original position of the door
 
+    Sign sign;
+
     void Start()
     {
+        sign = FindObjectOfType<Sign>();
+
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
         originalPosition = transform.position; // Store the original position
 
@@ -48,6 +52,11 @@ public class DoorScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsAtTheDoor)
         {
+            if (sign.GetHasReadSign() == false)
+            {
+                return;
+            }
+
             StartCoroutine(OpenDoor());
         }
     }
