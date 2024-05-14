@@ -237,7 +237,7 @@ MonoBehaviour:
   speed: 8
   sprintSpeed: 12
   isDashing: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 7177396192687436982}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
