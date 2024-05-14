@@ -2363,11 +2363,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1129999038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4912010339656729268, guid: d5fe769c5ebcd974398ed729ed43519e, type: 3}
-  m_PrefabInstance: {fileID: 401551138}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1166630438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 423998930769876742, guid: bccf983ac6cdef140b5309fbed8b3eb9, type: 3}
@@ -2580,14 +2575,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameIsPaused: 0
-  Pausemenu: {fileID: 1129999038}
-  Resumebutton: {fileID: 1444513131}
+  audioVolume: 50
+  pauseMenu: {fileID: 0}
   settingsBox: {fileID: 0}
-  Mixer: {fileID: 0}
-  AudioSource: {fileID: 0}
-  ValueText: {fileID: 0}
-  MixMode: 0
+  mixer: {fileID: 0}
+  audioSource: {fileID: 0}
+  valueText: {fileID: 0}
+  mixMode: 0
   volumeSlider: {fileID: 0}
+  debugText: {fileID: 0}
 --- !u!4 &1438897686
 Transform:
   m_ObjectHideFlags: 0
@@ -2603,11 +2599,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1444513131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6491837212115098846, guid: d5fe769c5ebcd974398ed729ed43519e, type: 3}
-  m_PrefabInstance: {fileID: 401551138}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1500312839
 PrefabInstance:
   m_ObjectHideFlags: 0

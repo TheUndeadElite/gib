@@ -2,33 +2,47 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs; // Array av fiendens prefabs som ska spawnas
-    public float spawnRadius = 5.0f; // Maximalt avstånd från spawner där fienden kan spawnas
-    public int numberOfEnemiesToSpawn = 5; // Antalet fiender som ska spawnas
+    public GameObject[] enemyPrefabs;
+    public float spawnRadius = 5.0f;
+    public int numberOfEnemiesToSpawn = 5;
 
-    void Start()
+    bool canSpawn = false;
+
+    void Update()
     {
-        SpawnEnemy();
+        // Kolla om vi kan spawn och sedan spawnar fiender
+        if (canSpawn)
+        {
+            SpawnEnemy();
+            canSpawn = false; // Återställ flaggan efter spawn
+        }
     }
 
-    void SpawnEnemy()
+    // När en kolliderare träffar den här spawneren
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Kolla om det är spelaren som träffar
+        if (other.CompareTag("Player"))
+        {
+            // Aktivera spawneren för att spawn fiender
+            canSpawn = true;
+        }
+    }
+
+    // Funktion för att spawn fiender
+    public void SpawnEnemy()
     {
         for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
-            // Välj en slumpmässig fiende från arrayen
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-
-            // Beräkna en slumpmässig position inom spawnradie runt spawnerns position
             Vector2 spawnPosition = (Vector2)transform.position + Random.insideUnitCircle.normalized * spawnRadius;
-
-            // Skapa en fiende vid spawnpositionen
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
     }
 
+    // Visar en visuell indikation av spawnradie i Unity-editorn
     void OnDrawGizmosSelected()
     {
-        // Rita en gizmo för att visa spawnradie i scenen
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, spawnRadius);
     }
