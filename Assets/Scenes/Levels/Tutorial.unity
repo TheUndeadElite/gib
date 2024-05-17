@@ -136,10 +136,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2947917163544715034, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
-      propertyPath: attackPoint
-      value: 
-      objectReference: {fileID: 1228080373}
-    - target: {fileID: 2947917163544715034, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
       propertyPath: s_gameManager
       value: 
       objectReference: {fileID: 1020491137}
@@ -198,7 +194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2653346872696650617, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.39
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 2653346872696650617, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -250,11 +246,16 @@ PrefabInstance:
       objectReference: {fileID: 1342046861}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[0]
       value: Hello and welcome to The Cursed Hero and to the tutorial!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: Firstly you already know how to walk (wasd) and to jump is space (obviously)
+        and ctrl to dash.
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[3]
@@ -270,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[6]
-      value: ' '
+      value: ps something something coins are how you are valued
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[7]
@@ -6209,6 +6210,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &735499056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735499058}
+  - component: {fileID: 735499057}
+  m_Layer: 0
+  m_Name: inviswall (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &735499057
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735499056}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &735499058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735499056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.12, y: 1.47, z: 0}
+  m_LocalScale: {x: 1, y: 9.1042, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010033351
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,11 +7553,6 @@ Transform:
   - {fileID: 1924508026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1228080373 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7177396192687436982, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
-  m_PrefabInstance: {fileID: 17334700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1258135394
 GameObject:
   m_ObjectHideFlags: 0
@@ -7798,6 +7871,83 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1478655629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1478655631}
+  - component: {fileID: 1478655630}
+  m_Layer: 0
+  m_Name: inviswall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1478655630
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478655629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1478655631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478655629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.12, y: 1.47, z: 0}
+  m_LocalScale: {x: 1, y: 9.1042, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9720,3 +9870,5 @@ SceneRoots:
   - {fileID: 5821832097609138556}
   - {fileID: 627806609}
   - {fileID: 1338384253}
+  - {fileID: 1478655631}
+  - {fileID: 735499058}
