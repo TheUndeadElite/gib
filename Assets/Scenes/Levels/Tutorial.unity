@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8268183650552176774, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 634162454}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6199,6 +6203,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &634162454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7177396192687436982, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
+  m_PrefabInstance: {fileID: 17334700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &708017776 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 336021051191567857, guid: 7794da74dff8d284fac954b26c8f0141, type: 3}
