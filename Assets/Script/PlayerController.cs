@@ -3,10 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-
     [SerializeField] float speed = 8.0f;
     [SerializeField] float sprintSpeed = 12.0f;
-
     [SerializeField] bool isDashing = false;
     private bool canDash;
 
@@ -16,39 +14,24 @@ public class PlayerController : MonoBehaviour
     private bool canAttack;
     [SerializeField] bool isAttacking = false;
 
-
     float speedAtStart;
-
     Animator characterAnimator;
-
-
     Rigidbody2D myRigidbody;
     float horizontalInput;
     float verticalInput;
-    float Sprintspeed = 10;
 
-    //float sprintDuration = 5.0f;
-    //private float sprintTimer;
-    //private bool isSprinting;
-
-
-    //public void SetVerticalInput(float aValue)
-    //{ verticalInput = aValue; }
-
-    [SerializeField] private float exclamationMarkYOffset = 1.0f; // Serialized field to adjust the Y-axis offset
-
-    private GameObject exclamationMarkInstance; // Reference to the instantiated exclamation mark
-
-
-    //We need to know if the game is paused or not.
+    [SerializeField] private float exclamationMarkYOffset = 1.0f;
+    private GameObject exclamationMarkInstance;
 
     [SerializeField] GameManager s_gameManager;
 
+    // Lägg till publika variabler för att kontrollera antalet fiender
+    public int numberOfType1ToSpawn = 5;
+    public int numberOfType2ToSpawn = 5;
 
     private void Awake()
     {
         s_gameManager = FindObjectOfType<GameManager>();
-
         myRigidbody = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponentInChildren<Animator>();
 
@@ -65,13 +48,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-
     }
+
     IEnumerator AttackHitboxTrigger()
     {
         yield return new WaitForSeconds(0.553f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        //Skada
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<DamageTaker>().TakeDamage(1);
@@ -84,37 +66,27 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator AttackRoutine()
     {
-
         yield return null;
     }
 
-
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
-
-            return;
-
+        if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-
     }
+
     void Attack()
     {
-        //Animation
         isAttacking = true;
         characterAnimator.SetTrigger("isAttacking");
         StartCoroutine(AttackHitboxTrigger());
-        //Hitta enemies som finns i rangen
     }
 
     private void Update()
     {
-        if (s_gameManager.gameIsPaused)
-        {
-            return;
-        }
+        if (s_gameManager.gameIsPaused) return;
 
-        if (Input.GetKey(KeyCode.Mouse0) && isAttacking != true)
+        if (Input.GetKey(KeyCode.Mouse0) && !isAttacking)
         {
             Attack();
         }
@@ -131,7 +103,6 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        // L�gg till nullkontroll f�r att undvika NullReferenceException
         if (isDashing)
         {
             if (gameObject.transform.localScale.x == 1)
@@ -157,17 +128,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-     
-    
-
-
-
-
-
-
-
-
-        //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Sprint();
@@ -177,9 +137,7 @@ public class PlayerController : MonoBehaviour
             speed = speedAtStart;
         }
 
-        //dashing
-
-        if ((Input.GetKeyDown(KeyCode.LeftControl) && !isDashing && canDash))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !isDashing && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -188,30 +146,33 @@ public class PlayerController : MonoBehaviour
     IEnumerator Dash()
     {
         canDash = false;
-
         isDashing = true;
         yield return new WaitForSeconds(0.15f);
         isDashing = false;
-
         yield return new WaitForSeconds(2);
         canDash = true;
-        //On click: 
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("EnemySpawnTrigger"))
+        {
+            EnemySpawner spawner = other.GetComponent<EnemySpawner>();
+            if (spawner != null)
+            {
+                spawner.ActivateSpawner(numberOfType1ToSpawn, numberOfType2ToSpawn);
+                Debug.Log("Player triggered spawner: " + spawner.name);
+            }
+        }
+        else if (other.CompareTag("Interactable"))
         {
             Debug.Log("sign");
-            // Check if an exclamation mark instance doesn't already exist
             if (exclamationMarkInstance == null)
             {
-                // Attempt to load the prefab from the Resources folder
                 GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
                 if (exclamationMarkPrefab != null)
                 {
-                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0); // Use the serialized Y-axis offset
+                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0);
                     exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
                 }
                 else
@@ -220,33 +181,22 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (other.CompareTag("EnemySpawnTrigger"))
-        {
-            // Kalla p� fiendespawnerens spawnmetod n�r spelaren kommer i kontakt med fiendespawnerens kolliderare
-            EnemySpawner enemySpawner = other.GetComponent<EnemySpawner>();
-            if (enemySpawner != null)
-            {
-                enemySpawner.SpawnEnemy();
-            }
-        }
     }
-    void Sprint()
-    {
-        speed = sprintSpeed;
-    }
-
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Interactable"))
         {
-            // Destroy the exclamation mark instance if it exists
             if (exclamationMarkInstance != null)
             {
                 Destroy(exclamationMarkInstance);
-                exclamationMarkInstance = null; // Reset the reference
+                exclamationMarkInstance = null;
             }
         }
     }
 
+    void Sprint()
+    {
+        speed = sprintSpeed;
+    }
 }
