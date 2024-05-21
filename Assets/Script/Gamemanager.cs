@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public bool gameIsPaused;
     public float audioVolume = 50f;
+    public GameObject HideSettings;
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject settingsBox;
@@ -135,6 +136,14 @@ public class GameManager : MonoBehaviour
         {
             // Unmute the audio source
             canvasAudioSource.mute = false;
+        }
+    }
+
+    public void HideSettingsCanvas()
+    {
+        if (HideSettings != null)
+        {
+            HideSettings.SetActive(false);
         }
     }
 }
