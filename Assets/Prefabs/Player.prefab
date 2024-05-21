@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 4643477366059748531}
   - component: {fileID: 6923931286529549847}
   - component: {fileID: 2947917163544715034}
-  - component: {fileID: 6210729588232877121}
   - component: {fileID: 8268183650552176774}
   - component: {fileID: 1544963843068775682}
   m_Layer: 0
@@ -247,21 +246,6 @@ MonoBehaviour:
   isAttacking: 0
   exclamationMarkYOffset: 1.5
   s_gameManager: {fileID: 0}
---- !u!114 &6210729588232877121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695810976589076450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43354cd265ef1d746abfb2a3ef4f9e61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 10000
-  CurrentHealth: 0
-  deathScreenSceneName: DeathScreen
 --- !u!114 &8268183650552176774
 MonoBehaviour:
   m_ObjectHideFlags: 0

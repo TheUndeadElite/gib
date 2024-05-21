@@ -536,6 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   audioVolume: 50
+  HideSettings: {fileID: 0}
   pauseMenu: {fileID: 0}
   settingsBox: {fileID: 1057797409}
   mixer: {fileID: 0}

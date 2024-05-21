@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public bool gameIsPaused;
     public float audioVolume = 50f;
+    public GameObject HideSettings;
+    
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject settingsBox;
@@ -45,6 +47,12 @@ public class GameManager : MonoBehaviour
     public void MainMenuscene()
     {
         SceneManager.LoadScene("MainMenu");
+
+        gameIsPaused = false;
+        Debug.Log("Game UNpause!");
+
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Pause()
@@ -63,9 +71,18 @@ public class GameManager : MonoBehaviour
 
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
+
+
         }
     }
 
+    //void subsrice to OnLoad...
+    //
+    //gameIsPaused = false;
+    //        Debug.Log("Game UNpause!");
+
+    //        pauseMenu.SetActive(false);
+    //        Time.timeScale = 1;
     public void GetVolumeFromSlider()
     {
         audioVolume = volumeSlider.value;
@@ -135,6 +152,14 @@ public class GameManager : MonoBehaviour
         {
             // Unmute the audio source
             canvasAudioSource.mute = false;
+        }
+    }
+
+    public void HideSettingsCanvas()
+    {
+        if (HideSettings != null)
+        {
+            HideSettings.SetActive(false);
         }
     }
 }
