@@ -24,6 +24,13 @@ public class JumpController : MonoBehaviour
 
             characterAnimator.SetBool("isJumping", true);
         }
+
+
+
+        if(isGrounded)
+        {
+            characterAnimator.SetBool("isJumping", false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -32,7 +39,7 @@ public class JumpController : MonoBehaviour
         {
             isGrounded = true;
 
-            characterAnimator.SetBool("isJumping", false);
+           
         }
     }
     private void OnCollisionExit2D(Collision2D other)
