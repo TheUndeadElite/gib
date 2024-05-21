@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class SnokenController : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    [SerializeField] public Transform player; // Kontrollera att detta är synligt i inspektorn
 
     Vector2 relativePoint;
-
     SpriteRenderer spriteRenderer;
-
-
-
 
     void Awake()
     {
@@ -18,7 +14,13 @@ public class SnokenController : MonoBehaviour
 
     void Update()
     {
-        relativePoint = transform.InverseTransformPoint(player.position);   
+        if (player == null)
+        {
+            Debug.LogError("Player transform is not assigned!");
+            return;
+        }
+
+        relativePoint = transform.InverseTransformPoint(player.position);
 
         if (relativePoint.x < 0f && Mathf.Abs(relativePoint.x) > Mathf.Abs(relativePoint.y))
         {
@@ -28,6 +30,5 @@ public class SnokenController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-
     }
 }

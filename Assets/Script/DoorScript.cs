@@ -14,11 +14,14 @@ public class DoorScript : MonoBehaviour
 
     private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
     private Vector3 originalPosition; // Store the original position of the door
+    GameManager s_gameManager;
 
     Sign sign;
+    
 
     void Start()
     {
+        s_gameManager = FindObjectOfType<GameManager>();
         sign = FindObjectOfType<Sign>();
 
         spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
@@ -111,9 +114,11 @@ public class DoorScript : MonoBehaviour
 
     private void LoadScene()
     {
-        if (targetScene != null)
+        if (targetScene != null && !s_gameManager.gameIsPaused)
         {
             SceneManager.LoadScene(targetScene.name);
+
+
         }
         else
         {

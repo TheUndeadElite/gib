@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5909465907579775326}
   - component: {fileID: 5310390586970435441}
   - component: {fileID: 998627912288322003}
+  - component: {fileID: 8498993785391708246}
   m_Layer: 0
   m_Name: Snoken
   m_TagString: Enemy
@@ -113,6 +114,18 @@ MonoBehaviour:
   damageAmount: 1
   loot: {fileID: 417110077582921556, guid: 680b0402a6961c043a548e34483f1882, type: 3}
   ChanceToDrop: 0.5
+--- !u!114 &8498993785391708246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423998930769876742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef3dd29147d76b4996416ee024a84b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6366175329341066531
 GameObject:
   m_ObjectHideFlags: 0
