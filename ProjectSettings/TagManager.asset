@@ -10,6 +10,7 @@ TagManager:
   - Knight
   - Sword
   - Sign
+  - EnemySpawnTrigger
   layers:
   - Default
   - TransparentFX
