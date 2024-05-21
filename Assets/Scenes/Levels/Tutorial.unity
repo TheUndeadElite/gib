@@ -250,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 1342046861}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[0]
@@ -262,24 +262,28 @@ PrefabInstance:
         and ctrl to dash.
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: Hold shift to run!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[3]
-      value: 'To defeat them you have a sword at your disposal. '
+      value: 'On your journey you''ll surely come across dangerous monsters. '
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[4]
-      value: 'Go through the door when you are done playing around (you child). '
+      value: 'To defeat them you have a sword at your disposal. '
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[5]
-      value: '- Grupp 12'
+      value: 'Go through the door when you are done playing around (you child). '
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[6]
-      value: ps something something coins are how you are valued
+      value: '- Grupp 12'
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[7]
-      value: 
+      value: ps something something coins are how you are valued
       objectReference: {fileID: 0}
     - target: {fileID: 6436506431496523259, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: dialogues.Array.data[8]
