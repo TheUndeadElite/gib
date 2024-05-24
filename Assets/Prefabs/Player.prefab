@@ -122,8 +122,8 @@ GameObject:
   - component: {fileID: 6923931286529549847}
   - component: {fileID: 8268183650552176774}
   - component: {fileID: 1544963843068775682}
-  - component: {fileID: 1321692105876094614}
-  - component: {fileID: 7919662172148234232}
+  - component: {fileID: 7397612112847133702}
+  - component: {fileID: 3196973137968343557}
   m_Layer: 0
   m_Name: Player
   m_TagString: Knight
@@ -239,14 +239,16 @@ MonoBehaviour:
   speed: 8
   sprintSpeed: 12
   isDashing: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 7177396192687436982}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   isAttacking: 0
   exclamationMarkYOffset: 1.5
   s_gameManager: {fileID: 0}
+  numberOfType1ToSpawn: 5
+  numberOfType2ToSpawn: 5
 --- !u!114 &1544963843068775682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +264,7 @@ MonoBehaviour:
   MaxHealth: 3
   CurrentHealth: 0
   deathScreenSceneName: DeathScreen
---- !u!114 &1321692105876094614
+--- !u!114 &7397612112847133702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +279,7 @@ MonoBehaviour:
   speed: 8
   sprintSpeed: 12
   isDashing: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 7177396192687436982}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
@@ -285,7 +287,9 @@ MonoBehaviour:
   isAttacking: 0
   exclamationMarkYOffset: 1.5
   s_gameManager: {fileID: 0}
---- !u!114 &7919662172148234232
+  numberOfType1ToSpawn: 5
+  numberOfType2ToSpawn: 5
+--- !u!114 &3196973137968343557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757272386087285134}
   - component: {fileID: 6336362145240769733}
-  - component: {fileID: 2393858777262481760}
+  - component: {fileID: 6870931810376585874}
   m_Layer: 0
   m_Name: playerGfx
   m_TagString: Untagged
@@ -385,7 +389,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2393858777262481760
+--- !u!95 &6870931810376585874
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
