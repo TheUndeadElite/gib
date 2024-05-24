@@ -19,8 +19,11 @@ public class DamageTaker : MonoBehaviour
     public GameObject loot = null;
     public float ChanceToDrop = 0.5f;
 
+    [SerializeField] CircleCollider2D damageColider;
+
     void Start()
     {
+        damageColider.enabled = false;
         currentHealth = MaxHealth;
     }
 
@@ -29,25 +32,29 @@ public class DamageTaker : MonoBehaviour
     { 
         if (player != null)
         {
-            Vector3 scale = transform.localScale;
+           // Vector3 scale = transform.localScale;
 
             if (player.transform.position.x > transform.position.x)
             {
-                scale.x = Mathf.Abs(scale.x);
+               transform.rotation = Quaternion.Euler(0,0,0);
             }
             else
             {
-                scale.x = -Mathf.Abs(scale.x);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
-            if(AttackRange > (player.transform.position - transform.position).magnitude)
+
+            Debug.Log(Vector2.Distance(player.transform.position, transform.position));
+
+            if (AttackRange > Vector2.Distance(player.transform.position, transform.position))
             {
-                //if (!snokenAnimator.GetBool("isAttacking"))
-                //{
+
+                
                     snokenAnimator.SetBool("isAttacking", true);
 
 
-                //}
+              
             }
+
             else
             {
                 snokenAnimator.SetBool("isAttacking", false);
@@ -112,4 +119,18 @@ public class DamageTaker : MonoBehaviour
 
     //scaleLocal.x *= DirectionX;
     //        transform.localScale = scaleLocal;
+
+        
+
+    //THESE FUNCTIONS ARE TO ENABLE AND DISABLE THE DAMAGE-COLLIDER WHEN THE ANIMATION "ATTACK" PLAYS
+
+    public void EnableDamageCollider()
+    {
+        damageColider.enabled = true;
+    }
+    public void DisableDamageCollider()
+    {
+        damageColider.enabled = false;
+    }
+
 }

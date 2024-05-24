@@ -198,7 +198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2653346872696650617, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.43
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: 2653346872696650617, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -294,17 +294,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b307f580b9e3aa4f86fa56a74f1e2c7, type: 3}
---- !u!114 &79506706 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3686155349934612700, guid: d5fe769c5ebcd974398ed729ed43519e, type: 3}
-  m_PrefabInstance: {fileID: 5821832097609138556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &258084124 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1695810976589076450, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
@@ -5997,17 +5986,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7177396192687436982, guid: 5e9053d1164859442812ca3727fc4a15, type: 3}
   m_PrefabInstance: {fileID: 17334700}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &708017776 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3323668694394313197, guid: d5fe769c5ebcd974398ed729ed43519e, type: 3}
-  m_PrefabInstance: {fileID: 5821832097609138556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &735499056
 GameObject:
   m_ObjectHideFlags: 0
@@ -7282,12 +7260,12 @@ MonoBehaviour:
   audioVolume: 50
   HideSettings: {fileID: 0}
   pauseMenu: {fileID: 519831629}
-  settingsBox: {fileID: 1649090709}
+  settingsBox: {fileID: 0}
   mixer: {fileID: 24100000, guid: 164bb7f1498a5dd47af8e3869e0b504a, type: 2}
   audioSource: {fileID: 1383896081}
-  valueText: {fileID: 79506706}
+  valueText: {fileID: 0}
   mixMode: 2
-  volumeSlider: {fileID: 708017776}
+  volumeSlider: {fileID: 0}
   debugText: {fileID: 0}
 --- !u!4 &1020491138
 Transform:
@@ -8028,11 +8006,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499561842}
   m_CullTransparentMesh: 1
---- !u!1 &1649090709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7511082043262267444, guid: d5fe769c5ebcd974398ed729ed43519e, type: 3}
-  m_PrefabInstance: {fileID: 5821832097609138556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924508025
 GameObject:
   m_ObjectHideFlags: 0

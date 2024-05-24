@@ -120,9 +120,10 @@ GameObject:
   - component: {fileID: 6051938976538135141}
   - component: {fileID: 4643477366059748531}
   - component: {fileID: 6923931286529549847}
-  - component: {fileID: 2947917163544715034}
   - component: {fileID: 8268183650552176774}
   - component: {fileID: 1544963843068775682}
+  - component: {fileID: 1321692105876094614}
+  - component: {fileID: 7919662172148234232}
   m_Layer: 0
   m_Name: Player
   m_TagString: Knight
@@ -223,29 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpPower: 18
---- !u!114 &2947917163544715034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695810976589076450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20aaf310c29462d40a3b3d3248571347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  sprintSpeed: 12
-  isDashing: 0
-  attackPoint: {fileID: 7177396192687436982}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  isAttacking: 0
-  exclamationMarkYOffset: 1.5
-  s_gameManager: {fileID: 0}
 --- !u!114 &8268183650552176774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +262,44 @@ MonoBehaviour:
   MaxHealth: 3
   CurrentHealth: 0
   deathScreenSceneName: DeathScreen
+--- !u!114 &1321692105876094614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695810976589076450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20aaf310c29462d40a3b3d3248571347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  sprintSpeed: 12
+  isDashing: 0
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  isAttacking: 0
+  exclamationMarkYOffset: 1.5
+  s_gameManager: {fileID: 0}
+--- !u!114 &7919662172148234232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695810976589076450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43354cd265ef1d746abfb2a3ef4f9e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
+  CurrentHealth: 0
+  deathScreenSceneName: DeathScreen
 --- !u!1 &7414182775561202712
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757272386087285134}
   - component: {fileID: 6336362145240769733}
-  - component: {fileID: 124182776936407538}
+  - component: {fileID: 2393858777262481760}
   m_Layer: 0
   m_Name: playerGfx
   m_TagString: Untagged
@@ -369,7 +385,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &124182776936407538
+--- !u!95 &2393858777262481760
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
