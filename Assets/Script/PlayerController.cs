@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,8 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameManager s_gameManager;
 
     // Lägg till publika variabler för att kontrollera antalet fiender
-    public int numberOfType1ToSpawn = 5;
-    public int numberOfType2ToSpawn = 5;
+    
 
     private void Awake()
     {
@@ -154,36 +154,7 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("EnemySpawnTrigger"))
-        {
-            EnemySpawner spawner = other.GetComponent<EnemySpawner>();
-            if (spawner != null)
-            {
-                spawner.ActivateSpawner(numberOfType1ToSpawn, numberOfType2ToSpawn);
-                Debug.Log("Player triggered spawner: " + spawner.name);
-            }
-        }
-        else if (other.CompareTag("Interactable"))
-        {
-            Debug.Log("sign");
-            if (exclamationMarkInstance == null)
-            {
-                GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
-                if (exclamationMarkPrefab != null)
-                {
-                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0);
-                    exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
-                }
-                else
-                {
-                    Debug.LogError("Failed to load exclamation mark prefab.");
-                }
-            }
-        }
-    }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Interactable"))
@@ -199,5 +170,11 @@ public class PlayerController : MonoBehaviour
     void Sprint()
     {
         speed = sprintSpeed;
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player has died!");
+        SceneManager.LoadScene("DeathScreen");
     }
 }
