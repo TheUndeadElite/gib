@@ -56,17 +56,14 @@ public class PlayerController : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<DamageTaker>().TakeDamage(1);
+            Debug.Log("Hej dennis");
+            DamageTaker damageTaker = enemy.GetComponent<DamageTaker>();
+            if (damageTaker != null)
+            {
+                damageTaker.TakeDamage(1);
+            }
         }
-        yield return new WaitForSeconds(0.5f);
         isAttacking = false;
-
-        yield return null;
-    }
-
-    IEnumerator AttackRoutine()
-    {
-        yield return null;
     }
 
     void OnDrawGizmosSelected()
@@ -84,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (s_gameManager.gameIsPaused) return;
+        if (s_gameManager != null && s_gameManager.gameIsPaused) return;
 
         if (Input.GetKey(KeyCode.Mouse0) && !isAttacking)
         {
@@ -105,27 +102,12 @@ public class PlayerController : MonoBehaviour
 
         if (isDashing)
         {
-            if (gameObject.transform.localScale.x == 1)
-            {
-                myRigidbody.velocity = transform.right * 20;
-            }
-            else
-            {
-                myRigidbody.velocity = -transform.right * 20;
-            }
+            myRigidbody.velocity = new Vector2(transform.localScale.x * 20, myRigidbody.velocity.y);
         }
         else
         {
-            if (horizontalInput == 0)
-            {
-                myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
-                characterAnimator.SetBool("isWalking", false);
-            }
-            if (horizontalInput != 0)
-            {
-                myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
-                characterAnimator.SetBool("isWalking", true);
-            }
+            myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
+            characterAnimator.SetBool("isWalking", horizontalInput != 0);
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -166,7 +148,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Interactable"))
         {
-            Debug.Log("sign");
             if (exclamationMarkInstance == null)
             {
                 GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
