@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5310390586970435441}
   - component: {fileID: 998627912288322003}
   - component: {fileID: 8498993785391708246}
-  m_Layer: 0
+  - component: {fileID: 5556531995006556795}
+  m_Layer: 7
   m_Name: Snoken
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -114,6 +115,7 @@ MonoBehaviour:
   damageAmount: 1
   loot: {fileID: 417110077582921556, guid: 680b0402a6961c043a548e34483f1882, type: 3}
   ChanceToDrop: 0.5
+  damageColider: {fileID: 5556531995006556795}
 --- !u!114 &8498993785391708246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +128,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef3dd29147d76b4996416ee024a84b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &5556531995006556795
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423998930769876742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2, y: -0.03}
+  serializedVersion: 2
+  m_Radius: 1.03
 --- !u!1 &6366175329341066531
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +174,8 @@ GameObject:
   - component: {fileID: 4124247707399573607}
   - component: {fileID: 6672223164557619963}
   - component: {fileID: 6510551931452888376}
-  m_Layer: 0
+  - component: {fileID: 581134769825385962}
+  m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,3 +270,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &581134769825385962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366175329341066531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c60d537a06be474faa1a600506e8c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

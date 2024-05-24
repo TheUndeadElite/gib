@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,7 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameManager s_gameManager;
 
     // Lägg till publika variabler för att kontrollera antalet fiender
-    
+    public int numberOfType1ToSpawn = 5;
+    public int numberOfType2ToSpawn = 5;
 
     private void Awake()
     {
@@ -56,17 +56,14 @@ public class PlayerController : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<DamageTaker>().TakeDamage(1);
+            Debug.Log("Hej dennis");
+            DamageTaker damageTaker = enemy.GetComponent<DamageTaker>();
+            if (damageTaker != null)
+            {
+                damageTaker.TakeDamage(1);
+            }
         }
-        yield return new WaitForSeconds(0.5f);
         isAttacking = false;
-
-        yield return null;
-    }
-
-    IEnumerator AttackRoutine()
-    {
-        yield return null;
     }
 
     void OnDrawGizmosSelected()
@@ -84,8 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-        if (s_gameManager.gameIsPaused) return;
+        if (s_gameManager != null && s_gameManager.gameIsPaused) return;
 
         if (Input.GetKey(KeyCode.Mouse0) && !isAttacking)
         {
@@ -106,27 +102,12 @@ public class PlayerController : MonoBehaviour
 
         if (isDashing)
         {
-            if (gameObject.transform.localScale.x == 1)
-            {
-                myRigidbody.velocity = transform.right * 20;
-            }
-            else
-            {
-                myRigidbody.velocity = -transform.right * 20;
-            }
+            myRigidbody.velocity = new Vector2(transform.localScale.x * 20, myRigidbody.velocity.y);
         }
         else
         {
-            if (horizontalInput == 0)
-            {
-                myRigidbody.velocity = new Vector2(0.0f, myRigidbody.velocity.y);
-                characterAnimator.SetBool("isWalking", false);
-            }
-            if (horizontalInput != 0)
-            {
-                myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
-                characterAnimator.SetBool("isWalking", true);
-            }
+            myRigidbody.velocity = new Vector2(speed * horizontalInput, myRigidbody.velocity.y);
+            characterAnimator.SetBool("isWalking", horizontalInput != 0);
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -154,7 +135,35 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
-    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemySpawnTrigger"))
+        {
+            EnemySpawner spawner = other.GetComponent<EnemySpawner>();
+            if (spawner != null)
+            {
+                spawner.ActivateSpawner(numberOfType1ToSpawn, numberOfType2ToSpawn);
+                Debug.Log("Player triggered spawner: " + spawner.name);
+            }
+        }
+        else if (other.CompareTag("Interactable"))
+        {
+            if (exclamationMarkInstance == null)
+            {
+                GameObject exclamationMarkPrefab = Resources.Load<GameObject>("Utroptstecken");
+                if (exclamationMarkPrefab != null)
+                {
+                    Vector3 spawnPosition = other.transform.position + new Vector3(0, exclamationMarkYOffset, 0);
+                    exclamationMarkInstance = Instantiate(exclamationMarkPrefab, spawnPosition, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("Failed to load exclamation mark prefab.");
+                }
+            }
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Interactable"))
@@ -170,11 +179,5 @@ public class PlayerController : MonoBehaviour
     void Sprint()
     {
         speed = sprintSpeed;
-    }
-
-    public void Die()
-    {
-        Debug.Log("Player has died!");
-        SceneManager.LoadScene("DeathScreen");
     }
 }
