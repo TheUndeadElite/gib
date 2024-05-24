@@ -525,10 +525,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeo \"Definitivt inte tysk\" Z\xF6ger\n\nAlmir
-    Bajraktarevic\n\nAbas \"abaussy\" Yosef\n\n\n\nVilse Berlin\n\nSean \"Tony\"
-    Stark\n\nOleksandr \"PATRIOT\" Vdovtsov\n\nWilliam Karlsson\n\n\n\n\n\n\n\n\nWilliam
-    Karlsson"
+  m_text: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeo Z\xF6ger\n\nAlmir Bajraktarevic\n\nAbas
+    \"Abaussy\" Yosef\n\n\n\nVilse Berlin\n\nSean \"Tony\" Stark\n\nOleksandr \"PATRIOT\"
+    Vdovtsov\n\nWilliam Karlsson\n\n\n\n\n\n\n\n\nWilliam Karlsson"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a1a26efed5ec3a458be99c6973dcb8f, type: 2}
   m_sharedMaterial: {fileID: 3023771976102740890, guid: 6a1a26efed5ec3a458be99c6973dcb8f, type: 2}
