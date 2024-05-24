@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936bcebf78eaea041bd8be7f18c9274d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  maxHealth: 2
   coinPrefab: {fileID: 0}
   spawnPosition: {fileID: 0}
 --- !u!114 &4657768713740280011

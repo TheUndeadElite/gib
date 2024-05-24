@@ -120,10 +120,10 @@ GameObject:
   - component: {fileID: 6051938976538135141}
   - component: {fileID: 4643477366059748531}
   - component: {fileID: 6923931286529549847}
-  - component: {fileID: 2947917163544715034}
+  - component: {fileID: 8268183650552176774}
   - component: {fileID: 1544963843068775682}
-  - component: {fileID: 1153874787116496630}
-  - component: {fileID: 8036254520970800173}
+  - component: {fileID: 1321692105876094614}
+  - component: {fileID: 7919662172148234232}
   m_Layer: 0
   m_Name: Player
   m_TagString: Knight
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpPower: 18
---- !u!114 &2947917163544715034
+--- !u!114 &8268183650552176774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,16 +239,14 @@ MonoBehaviour:
   speed: 8
   sprintSpeed: 12
   isDashing: 0
-  attackPoint: {fileID: 7177396192687436982}
+  attackPoint: {fileID: 0}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   isAttacking: 0
   exclamationMarkYOffset: 1.5
   s_gameManager: {fileID: 0}
-  numberOfType1ToSpawn: 5
-  numberOfType2ToSpawn: 5
 --- !u!114 &1544963843068775682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,80 +262,44 @@ MonoBehaviour:
   MaxHealth: 3
   CurrentHealth: 0
   deathScreenSceneName: DeathScreen
---- !u!1839735485 &1153874787116496630
-Tilemap:
+--- !u!114 &1321692105876094614
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695810976589076450}
   m_Enabled: 1
-  m_Tiles: {}
-  m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
-  m_TileObjectToInstantiateArray: []
-  m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 0
-  m_TileOrientationMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
---- !u!19719996 &8036254520970800173
-TilemapCollider2D:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20aaf310c29462d40a3b3d3248571347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  sprintSpeed: 12
+  isDashing: 0
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  isAttacking: 0
+  exclamationMarkYOffset: 1.5
+  s_gameManager: {fileID: 0}
+--- !u!114 &7919662172148234232
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695810976589076450}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43354cd265ef1d746abfb2a3ef4f9e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 3
+  CurrentHealth: 0
+  deathScreenSceneName: DeathScreen
 --- !u!1 &7414182775561202712
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757272386087285134}
   - component: {fileID: 6336362145240769733}
-  - component: {fileID: 124182776936407538}
+  - component: {fileID: 2393858777262481760}
   m_Layer: 0
   m_Name: playerGfx
   m_TagString: Untagged
@@ -423,7 +385,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &124182776936407538
+--- !u!95 &2393858777262481760
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
