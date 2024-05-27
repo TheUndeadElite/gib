@@ -15,7 +15,7 @@ public class Ghostenemy : MonoBehaviour
     private bool isRetreating = false; // Kontrollerar om fienden drar sig tillbaka
     private float timeSinceLastAttack = 0.0f; // Tid sedan senaste attack
 
-    private SpriteRenderer renderer;
+    
     private bool isVisible = false; // Om fienden är synlig på kameran
 
     void Start()
@@ -23,7 +23,7 @@ public class Ghostenemy : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Knight").transform;
         enemyAttack = GetComponent<EnemyAttack>();
-        renderer = GetComponent< SpriteRenderer>();
+      
 
         // Aktivera fienden vid start
         gameObject.SetActive(true);
@@ -31,25 +31,10 @@ public class Ghostenemy : MonoBehaviour
 
     void Update()
     {
-        if (isVisibleOnCamera())
-        {
-            gameObject.SetActive(true);
-            MoveTowardsPlayer();
-          
-        }
-        else
-        {
-            // Om fienden inte är synlig på kameran, inaktivera den och gör ingenting
-            gameObject.SetActive(false);
-        }
+        
+      
 
-        // Gör ingenting om fienden inte är synlig på kameran
-        if (!isVisible)
-        {
-            rb2D.velocity = Vector2.zero;
-            enemyAttack.enabled = false;
-            return;
-        }
+       
 
         MoveTowardsPlayer();
 
@@ -122,9 +107,5 @@ public class Ghostenemy : MonoBehaviour
         enemyAttack.enabled = false;
     }
 
-    bool isVisibleOnCamera()
-    {
-        // Kontrollera om fienden är synlig på kameran
-        return GetComponent<SpriteRenderer>().isVisible;
-    }
+    
 }
