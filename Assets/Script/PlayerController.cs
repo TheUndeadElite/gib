@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -77,6 +78,11 @@ public class PlayerController : MonoBehaviour
         isAttacking = true;
         characterAnimator.SetTrigger("isAttacking");
         StartCoroutine(AttackHitboxTrigger());
+    }
+    public void Die()
+    {
+        Debug.Log("Player has died!");
+        SceneManager.LoadScene("DeathScreen");
     }
 
     private void Update()
