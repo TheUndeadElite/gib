@@ -1033,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 4316774147809615470, guid: a33f24945ba4e9a45b7c2d80ad889ec9, type: 3}
       propertyPath: targetScene
       value: 
-      objectReference: {fileID: 102900000, guid: 75af81a3f53109448a6f25733b2310ee, type: 3}
+      objectReference: {fileID: 102900000, guid: 804cff6f11b4b7547936cf8cdc467918, type: 3}
     - target: {fileID: 4316774147809615470, guid: a33f24945ba4e9a45b7c2d80ad889ec9, type: 3}
       propertyPath: openDoorImage
       value: 
